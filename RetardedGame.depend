@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1410636045 source:c:\users\dima\documents\cbworkspace\retardedgame\main.cpp
+	<iostream>
+	<SDL2/SDL.h>
+
