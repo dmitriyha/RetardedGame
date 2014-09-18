@@ -1,5 +1,51 @@
 # depslib dependency file v1.0
-1410636045 source:c:\users\dima\documents\cbworkspace\retardedgame\main.cpp
+1411070616 source:c:\users\dima\documents\cbworkspace\retardedgame\main.cpp
 	<iostream>
+	<string>
+	<SDL2/SDL.h>
+	"Window.h"
+	"Texture.h"
+	"Character.h"
+	"Player.h"
+	"FpsCapper.h"
+
+1411069374 source:c:\users\dima\documents\cbworkspace\retardedgame\src\window.cpp
+	"Window.h"
+
+1411071973 c:\users\dima\documents\cbworkspace\retardedgame\include\window.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<iostream>
+	"Texture.h"
+
+1411057535 source:c:\users\dima\documents\cbworkspace\retardedgame\src\texture.cpp
+	"Texture.h"
+
+1411072172 c:\users\dima\documents\cbworkspace\retardedgame\include\texture.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<iostream>
+	<string>
+
+1411072091 c:\users\dima\documents\cbworkspace\retardedgame\include\character.h
+	<SDL2/SDL.h>
+	<string>
+	<iostream>
+	<typeinfo>
+	"Texture.h"
+
+1411057594 source:c:\users\dima\documents\cbworkspace\retardedgame\src\character.cpp
+	"Character.h"
+
+1411059082 c:\users\dima\documents\cbworkspace\retardedgame\include\player.h
+	<Character.h>
+
+1411070759 source:c:\users\dima\documents\cbworkspace\retardedgame\src\player.cpp
+	"Player.h"
+
+1411071132 source:c:\users\dima\documents\cbworkspace\retardedgame\src\fpscapper.cpp
+	"FpsCapper.h"
+
+1411070901 c:\users\dima\documents\cbworkspace\retardedgame\include\fpscapper.h
 	<SDL2/SDL.h>
 

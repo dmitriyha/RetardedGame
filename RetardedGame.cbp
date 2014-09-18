@@ -8,25 +8,29 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/RetardedGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Debug/" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
-					<Add option="-lmingw32 -lSDL2main -lSDL2" />
+					<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image" />
 					<Add option="-lgdi32 -lWinmm" />
 					<Add option="-lOle32 -lImm32 -lOleAut32 -lVersion" />
 				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/RetardedGame" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Relese/" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -37,7 +41,17 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Character.h" />
+		<Unit filename="include/FpsCapper.h" />
+		<Unit filename="include/Player.h" />
+		<Unit filename="include/Texture.h" />
+		<Unit filename="include/Window.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Character.cpp" />
+		<Unit filename="src/FpsCapper.cpp" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Texture.cpp" />
+		<Unit filename="src/Window.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
