@@ -6,6 +6,7 @@ void Character::render(){
 
 void Character::setTexturePointer(Texture* _texture){
 	texture=_texture;//set the texture pointer
+	
 }
 
 Character::~Character()
