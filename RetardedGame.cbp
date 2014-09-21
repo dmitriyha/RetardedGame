@@ -40,8 +40,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
-			<Add directory="D:/GAME PROJECT/Retarded Game/Retarded-Game/RetardedGame/" />
-			<Add directory="G:/Program Files (x86)/CodeBlocks/libs/SDL_image" />
 		</Compiler>
 		<Unit filename="include/Character.h" />
 		<Unit filename="include/FpsCapper.h" />
