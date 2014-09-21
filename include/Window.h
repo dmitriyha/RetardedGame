@@ -16,8 +16,8 @@ class Window
 	SDL_Window* window;// the window of this window
 	SDL_Renderer* renderer = NULL;//the rnderer
 	Texture canvas;//the canvas
-	int winWidth = 256;//the initial width of the window
-	int winHeight = 240;//the initial height of the window
+	int winWidth = 480;//the initial width of the window
+	int winHeight = 512;//the initial height of the window
 	public:
 		bool resized;
 		Window();
