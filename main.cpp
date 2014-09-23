@@ -44,6 +44,8 @@ int main(int argc,char * argv[])
 					case SDL_QUIT:
 						quit = true;
 						break;
+					default:
+						break;
 				}//end switch (event.type)
 			}//end while(SDL_PollEvent( &event ))
 			

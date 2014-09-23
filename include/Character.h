@@ -4,7 +4,6 @@
 #include <SDL2/SDL.h>
 #include <string>
 #include <iostream>
-#include <typeinfo>
 #include "Texture.h"
 using namespace std;
 

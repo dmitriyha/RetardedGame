@@ -1,8 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <Character.h>
-
+#include "Character.h"
+#include <SDL2/SDL.h>
 
 class Player : public Character
 {
