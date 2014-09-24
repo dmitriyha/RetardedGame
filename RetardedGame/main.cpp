@@ -17,7 +17,7 @@ int main(int argc,char ** argv)
 	
 	Texture* box =new Texture(); //create a new texture. This will be the universal sprite sheet texture
 	box->setRenderer(win.getRenderer()); // set the renderer for the texture
-	box->makeTexture("Images\\lol.png"); //set the spritesheet
+	box->makeTexture("Images\\img.png"); //set the spritesheet
 	
 	Player p; //the player class
 	p.setTexturePointer(box);//sets the pointer to the texture for the player to use.

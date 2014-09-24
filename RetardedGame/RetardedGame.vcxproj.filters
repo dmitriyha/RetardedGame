@@ -52,6 +52,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Images\img.png">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="Images\lol.png">
       <Filter>Resource Files</Filter>
     </Image>
