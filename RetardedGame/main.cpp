@@ -5,7 +5,9 @@
 #include "Texture.h"
 #include "Character.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "FpsCapper.h"
+#include "EnemyFactory.h"
 using namespace std;
 
 
@@ -17,13 +19,13 @@ int main(int argc,char ** argv)
 	
 	Texture* box =new Texture(); //create a new texture. This will be the universal sprite sheet texture
 	box->setRenderer(win.getRenderer()); // set the renderer for the texture
-	box->makeTexture("Images\\img.png"); //set the spritesheet
+	box->makeTexture("Images\\lol.png"); //set the spritesheet
 	
-	Player p; //the player class
-	p.setTexturePointer(box);//sets the pointer to the texture for the player to use.
+	Player p;//create a player object
+	p.setTexturePointer(box);//create a pointer to the spritesheet
 	
-	
-	
+	Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
+
 	if(win.windowExists()){
 		FpsCapper fps;//create a FPS capper
 		bool quit=false; //sets the main loop exit flag
@@ -56,6 +58,7 @@ int main(int argc,char ** argv)
 				p.move();
 			}
 			
+			e->render();//render the enemy object
 			p.render();//render player to canvas
 			win.renderFrame();//render canvas to screen
 			

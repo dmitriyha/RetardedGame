@@ -9,6 +9,9 @@ void Character::setTexturePointer(Texture* _texture){
 	
 }
 
+void Character::move(){//the move method
+}
+
 Character::~Character()
 {
 	//dtor

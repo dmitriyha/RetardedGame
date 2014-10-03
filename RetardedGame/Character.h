@@ -12,6 +12,7 @@ class Character
 	public:
 		void render();
 		void setTexturePointer(Texture* _texture);
+		virtual void move();
 		virtual ~Character();
 	protected:
 		Texture* texture;//the pointer to the sprite sheet
