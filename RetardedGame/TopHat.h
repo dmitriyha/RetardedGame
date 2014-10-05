@@ -6,6 +6,7 @@ class TopHat :
 {
 public:
 	TopHat();
+	void render();
 	~TopHat();
 };
 

@@ -5,6 +5,9 @@ Weapon::Weapon()
 {
 }
 
+void Weapon::render(){
+
+}
 
 Weapon::~Weapon()
 {

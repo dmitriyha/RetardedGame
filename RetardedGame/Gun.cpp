@@ -5,6 +5,9 @@ Gun::Gun()
 {
 }
 
+void Gun::render(){
+
+}
 
 Gun::~Gun()
 {

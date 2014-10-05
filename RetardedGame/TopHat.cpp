@@ -5,6 +5,9 @@ TopHat::TopHat()
 {
 }
 
+void TopHat::render(){
+
+}
 
 TopHat::~TopHat()
 {

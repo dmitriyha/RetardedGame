@@ -5,6 +5,7 @@ class Gun :
 {
 public:
 	Gun();
+	void render();
 	~Gun();
 private:
 	int bullets;//amount of bullets
