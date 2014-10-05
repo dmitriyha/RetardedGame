@@ -60,7 +60,12 @@ void Player::move(string movement){//the move method
 
 	else if (movement == "jump")
 	{
-		gravityVelocity = - 5;
+		if (collision){
+			collision = false;
+			gravityVelocity = -5;
+			worldLoc.y = (480 - spriteSheetLoc.h) - 1;
+		}
+		
 	}
 
 	//worldLoc.y++;

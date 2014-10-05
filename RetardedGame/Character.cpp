@@ -10,17 +10,27 @@ void Character::setTexturePointer(Texture* _texture){
 }
 
 void Character::gravity(){
+	
 	gravityVelocity = gravityVelocity + gravityConstant;
+	
 	if (gravityVelocity > maxGravityVelocity){
 		gravityVelocity = maxGravityVelocity;
 	}
 
+	
+
 	if (worldLoc.y >= 480 - spriteSheetLoc.h){
-		worldLoc.y = 480 - spriteSheetLoc.h;
+
+		worldLoc.y = (480 - spriteSheetLoc.h) ;
+		
+		collision = true;
+	}
+	
+	if (collision){
 		gravityVelocity = 0;
 	}
 
-	worldLoc.y = worldLoc.y + gravityVelocity;
+	worldLoc.y = worldLoc.y + (gravityVelocity );
 }
 
 void Character::move(){//the move method
