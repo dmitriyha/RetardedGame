@@ -55,9 +55,12 @@ int main(int argc,char ** argv)
 			win.clearFrame();//clears the frame in preperation of the next frame
 			
 			if(p.isMoving()){//move player if keys are pressed
-				p.move();
+				//p.move();
 			}
 			
+			//p.gravity();
+			e->gravity();
+
 			e->render();//render the enemy object
 			p.render();//render player to canvas
 			win.renderFrame();//render canvas to screen

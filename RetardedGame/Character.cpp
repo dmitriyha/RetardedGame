@@ -9,6 +9,12 @@ void Character::setTexturePointer(Texture* _texture){
 	
 }
 
+void Character::gravity(){
+	gravityVel = gravityVel + gravityConstant;
+	cout << gravityVel << endl;
+	worldLoc.y = worldLoc.y + gravityVel;
+}
+
 void Character::move(){//the move method
 }
 
