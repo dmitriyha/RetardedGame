@@ -58,8 +58,8 @@ int main(int argc,char ** argv)
 				//p.move();
 			}
 			
-			//p.gravity();
-			e->gravity();
+			p.gravity();//gravity of the player
+			e->gravity();//gravity of the enemy
 
 			e->render();//render the enemy object
 			p.render();//render player to canvas
