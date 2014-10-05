@@ -5,6 +5,7 @@ class Googles :
 {
 public:
 	Googles();
+	void render();
 	~Googles();
 };
 

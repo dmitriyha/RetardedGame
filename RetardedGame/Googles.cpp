@@ -5,6 +5,9 @@ Googles::Googles()
 {
 }
 
+void Googles::render(){
+
+}
 
 Googles::~Googles()
 {

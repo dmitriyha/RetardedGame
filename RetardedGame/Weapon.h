@@ -5,6 +5,7 @@ class Weapon :
 {
 public:
 	Weapon();
+	virtual void render();
 	~Weapon();
 private:
 	int strength;//strength of the weapon

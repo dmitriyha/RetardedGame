@@ -11,6 +11,9 @@ Enemy* EnemyFactory::create(string type, Texture* texture){
 		e->setTexturePointer(texture);//set the texture pointer
 		return e;
 	}
+	else{
+		return NULL;
+	}
 }
 
 EnemyFactory::~EnemyFactory()

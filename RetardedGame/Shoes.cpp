@@ -5,6 +5,9 @@ Shoes::Shoes()
 {
 }
 
+void Shoes::render(){
+
+}
 
 Shoes::~Shoes()
 {
