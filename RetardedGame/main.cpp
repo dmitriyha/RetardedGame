@@ -55,7 +55,7 @@ int main(int argc,char ** argv)
 			win.clearFrame();//clears the frame in preperation of the next frame
 			
 			if(p.isMoving()){//move player if keys are pressed
-				p.move();
+				p.move(p.movement);
 			}
 			
 			p.gravity();//gravity of the player

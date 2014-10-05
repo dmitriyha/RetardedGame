@@ -8,29 +8,47 @@ Player::Player(){
 void Player::eventHandler(SDL_Event event){
 	if(event.type==SDL_KEYDOWN){//when the key is pressed
 		switch(event.key.keysym.sym){
-			case SDLK_w:
+			case SDLK_RIGHT:
 				moving=true;
+				movement = "right";
+				break;
+
+			case SDLK_LEFT:
+				moving = true;
+				movement = "left";
 				break;
 		}
 	}
 	else if(event.type==SDL_KEYUP){//when the key is let go
 		switch(event.key.keysym.sym){
-			case SDLK_w:
+			case SDLK_RIGHT:
 				moving=false;
+				break;
+
+			case SDLK_LEFT:
+				moving = false;
 				break;
 		}
 	}
-	
-	
 }
 
 bool Player::isMoving(){//the moving flag
 	return moving;
 }
 
-void Player::move(){//the move method
-	worldLoc.x++;
-	worldLoc.y++;
+void Player::move(string movement){//the move method
+	//worldLoc.x++;
+	if (movement == "right")
+	{
+		worldLoc.x = worldLoc.x + 2;
+	}
+
+	else if (movement == "left")
+	{
+		worldLoc.x = worldLoc.x - 2;
+	}
+
+	//worldLoc.y++;
 }
 
 Player::~Player()

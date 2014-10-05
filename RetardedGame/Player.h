@@ -12,7 +12,8 @@ class Player : public Character
 		Player();
 		void eventHandler(SDL_Event event);
 		bool isMoving();
-		void move();
+		string movement;
+		void move(string direction);		
 		~Player();
 	protected:
 	private:
