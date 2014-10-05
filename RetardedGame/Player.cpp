@@ -17,6 +17,12 @@ void Player::eventHandler(SDL_Event event){
 				moving = true;
 				movement = "left";
 				break;
+
+			case SDLK_a:
+				moving = true;
+				movement = "jump";
+				break;
+
 		}
 	}
 	else if(event.type==SDL_KEYUP){//when the key is let go
@@ -26,6 +32,10 @@ void Player::eventHandler(SDL_Event event){
 				break;
 
 			case SDLK_LEFT:
+				moving = false;
+				break;
+
+			case SDLK_a:
 				moving = false;
 				break;
 		}
@@ -46,6 +56,11 @@ void Player::move(string movement){//the move method
 	else if (movement == "left")
 	{
 		worldLoc.x = worldLoc.x - 2;
+	}
+
+	else if (movement == "jump")
+	{
+		gravityVelocity = - 5;
 	}
 
 	//worldLoc.y++;
