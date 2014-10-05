@@ -136,9 +136,16 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="FpsCapper.cpp" />
+    <ClCompile Include="Gadget.cpp" />
+    <ClCompile Include="Googles.cpp" />
+    <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Shoes.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TopHat.cpp" />
+    <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,8 +153,15 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="FpsCapper.h" />
+    <ClInclude Include="Gadget.h" />
+    <ClInclude Include="Googles.h" />
+    <ClInclude Include="Gun.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Shoes.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TopHat.h" />
+    <ClInclude Include="Weapon.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
