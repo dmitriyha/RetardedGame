@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Character.h"
+#include "Weapon.h"
 #include <SDL.h>
 
 class Player : public Character
