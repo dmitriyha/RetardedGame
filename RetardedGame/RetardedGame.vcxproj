@@ -137,7 +137,7 @@
     <ClCompile Include="EnemyFactory.cpp" />
     <ClCompile Include="FpsCapper.cpp" />
     <ClCompile Include="Gadget.cpp" />
-    <ClCompile Include="Googles.cpp" />
+    <ClCompile Include="Goggles.cpp" />
     <ClCompile Include="Gun.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -154,7 +154,7 @@
     <ClInclude Include="EnemyFactory.h" />
     <ClInclude Include="FpsCapper.h" />
     <ClInclude Include="Gadget.h" />
-    <ClInclude Include="Googles.h" />
+    <ClInclude Include="Goggles.h" />
     <ClInclude Include="Gun.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Player.h" />

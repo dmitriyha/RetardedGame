@@ -1,11 +1,11 @@
 #pragma once
 #include "Gadget.h"
-class Googles :
+class Goggles :
 	protected Gadget
 {
 public:
-	Googles();
+	Goggles();
 	void render();
-	~Googles();
+	~Goggles();
 };
 
