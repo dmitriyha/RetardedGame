@@ -23,7 +23,7 @@ class Window
 		Window();
 		void setCanvasSize(Texture* texture);
 		void clearFrame();
-		void renderFrame();
+		void renderFrame(SDL_Rect playerLoc);
 		void windowEventHandler(SDL_Event event);
 		SDL_Window* getWindow();
 		SDL_Renderer* getRenderer();

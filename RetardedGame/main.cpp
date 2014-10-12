@@ -82,7 +82,7 @@ int main(int argc,char ** argv)
 
 			e->render();//render the enemy object
 			p.render();//render player to canvas
-			win.renderFrame();//render canvas to screen
+			win.renderFrame(p.getPlayerLocation());//render canvas to screen
 			
 			string fpsText="The average FPS is: "+to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(),fpsText.c_str());

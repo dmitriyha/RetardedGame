@@ -61,11 +61,41 @@ void Window::clearFrame(){//clear a texture
 	SDL_RenderClear( renderer );
 }
 
-void Window::renderFrame(){
+void Window::renderFrame(SDL_Rect playerLoc){
 	
 	SDL_SetRenderTarget(renderer,NULL); //set the window back as the rendering target
 	clearFrame();//clear the window
 	
+	int playerCenterX = playerLoc.x + (playerLoc.w / 2);
+	int playerCenterY = playerLoc.y + (playerLoc.h / 2);
+
+	int cameraCenterX = winWidth / 2;
+	int cameraCenterY = winHeight / 2;
+
+	if ((playerCenterX - cameraCenterX) < 0){
+		cameraLocation.x = 0;
+	}
+	else if (playerCenterX + (winWidth / 2)>canvasSize.w){
+		cameraLocation.x = canvasSize.w - winWidth;
+	}
+	else{
+		cameraLocation.x = playerCenterX - cameraCenterX;
+	}
+
+	if ((playerCenterY - cameraCenterY) < 0){
+		cameraLocation.y = 0;
+	}
+	else if (playerCenterY + (winHeight / 2)>(canvasSize.h)){
+		cameraLocation.y = canvasSize.h - winHeight;
+	}
+	else{
+		cameraLocation.y = playerCenterY - cameraCenterY;
+	}
+	
+	
+
+	cout << (canvasSize.h - winHeight) << endl;
+
 	SDL_RenderCopy( renderer, canvas.getTexture(),&cameraLocation , &sceneSize );//render the the wanted part of the scene onto the screen
 	
 	
