@@ -78,6 +78,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gadget.h">
@@ -122,12 +125,18 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files\Window</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\img.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\lol.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\BasicMap.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

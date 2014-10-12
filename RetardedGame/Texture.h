@@ -16,6 +16,7 @@ class Texture
 		Texture ();
 		void makeTexture(string path);
 		void makeBlankTexture(int _width, int _height);
+		SDL_Rect getSize();
 		SDL_Texture* getTexture();
 		SDL_Renderer* getRenderer();
 		void setRenderer(SDL_Renderer* _renderer);

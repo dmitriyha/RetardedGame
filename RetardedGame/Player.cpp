@@ -2,7 +2,7 @@
 
 Player::Player(){
 	spriteSheetLoc={0,0,50,50};//where the player sprite is on the sprite sheet
-	worldLoc={0,0,50,50};//where the player will go on the canvas
+	worldLoc={50,50,50,50};//where the player will go on the canvas
 }
 
 void Player::eventHandler(SDL_Event event){

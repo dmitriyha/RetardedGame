@@ -44,13 +44,17 @@ Window::Window(){
 		}
 	}
 	
-	//if window was created, initialise the canvas
-	if(success){
-		canvas.setRenderer(renderer);
-		canvas.makeBlankTexture(winWidth,winHeight);
-	}
+	
 }
 
+void Window::setCanvasSize(Texture* texture){
+	//if window was created, initialise the canvas
+	if (success){
+		canvasSize=texture->getSize();
+		canvas.setRenderer(renderer);
+		canvas.makeBlankTexture(canvasSize.w, canvasSize.h);
+	}
+}
 
 void Window::clearFrame(){//clear a texture
 	SDL_SetRenderDrawColor( renderer, 0xFF, 0xFF, 0xFF, 0xFF );
@@ -87,7 +91,7 @@ void Window::windowEventHandler(SDL_Event event){
 			renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );//recreate the renderer
 			
 			canvas.setRenderer(renderer);//reinitialize the canvas
-			canvas.makeBlankTexture(winWidth,winHeight);
+			canvas.makeBlankTexture(canvasSize.w, canvasSize.h);
 			
 			resized=true;//set the resized flag
 			

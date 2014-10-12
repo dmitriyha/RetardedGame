@@ -48,6 +48,13 @@ void Texture::makeBlankTexture(int _width, int _height){//makes a canvas
 	} 
 }
 
+SDL_Rect Texture::getSize(){
+	SDL_Rect size;
+	size.w = width;
+	size.h = height;
+	return size;
+}
+
 SDL_Texture* Texture::getTexture(){//gets the texture object
 	if( texture == NULL ) {
 		return NULL;

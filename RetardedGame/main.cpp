@@ -8,6 +8,7 @@
 #include "Enemy.h"
 #include "FpsCapper.h"
 #include "EnemyFactory.h"
+#include "Map.h"
 using namespace std;
 
 
@@ -17,10 +18,23 @@ int main(int argc,char ** argv)
 	SDL_Event event;//create an even to poll
 	Window win;//create a window
 	
+	string characterPictures = "Images\\lol.png";
+	string mapPicture = "Images\\BasicMap.png";
+
+
 	Texture* box =new Texture(); //create a new texture. This will be the universal sprite sheet texture
 	box->setRenderer(win.getRenderer()); // set the renderer for the texture
-	box->makeTexture("Images\\lol.png"); //set the spritesheet
+	box->makeTexture(characterPictures); //set the spritesheet
 	
+	Texture* mapTexture = new Texture(); //create a new texture. This will be the universal sprite sheet texture
+	mapTexture->setRenderer(win.getRenderer()); // set the renderer for the texture
+	mapTexture->makeTexture(mapPicture); //set the spritesheet
+
+	win.setCanvasSize(mapTexture);
+
+	Map map;
+	map.setTexturePointer(mapTexture);
+
 	Player p;//create a player object
 	p.setTexturePointer(box);//create a pointer to the spritesheet
 	
@@ -39,7 +53,9 @@ int main(int argc,char ** argv)
 				
 				if(win.resized){ //if window was resized, reset the textures
 					box->setRenderer(win.getRenderer());
-					box->makeTexture("Images\\lol.png");
+					box->makeTexture(characterPictures);
+					mapTexture->setRenderer(win.getRenderer());
+					mapTexture->makeTexture(mapPicture);
 					win.resized=false;
 				}
 				
@@ -58,6 +74,9 @@ int main(int argc,char ** argv)
 				p.move(p.movement);
 			}
 			
+			
+			map.render();
+
 			p.gravity();//gravity of the player
 			e->gravity();//gravity of the enemy
 

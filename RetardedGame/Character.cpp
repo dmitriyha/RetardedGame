@@ -17,7 +17,7 @@ void Character::gravity(){
 		gravityVelocity = maxGravityVelocity;
 	}
 
-	
+	/* the collision detection that stopped it at the old screen borders
 
 	if (worldLoc.y >= 480 - spriteSheetLoc.h){
 
@@ -28,7 +28,7 @@ void Character::gravity(){
 	
 	if (collision){
 		gravityVelocity = 0;
-	}
+	}*/
 
 	worldLoc.y = worldLoc.y + (gravityVelocity );
 }

@@ -17,9 +17,11 @@ class Window
 	Texture canvas;//the canvas
 	int winWidth = 512;//the initial width of the window
 	int winHeight = 480;//the initial height of the window
+	SDL_Rect canvasSize;
 	public:
 		bool resized;
 		Window();
+		void setCanvasSize(Texture* texture);
 		void clearFrame();
 		void renderFrame();
 		void windowEventHandler(SDL_Event event);
