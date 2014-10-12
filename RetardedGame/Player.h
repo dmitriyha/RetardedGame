@@ -10,6 +10,7 @@ class Player : public Character
 	
 	public:
 		Player();
+		SDL_Rect getPlayerLocation();
 		void eventHandler(SDL_Event event);
 		bool isMoving();
 		string movement;

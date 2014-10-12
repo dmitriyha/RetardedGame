@@ -5,6 +5,10 @@ Player::Player(){
 	worldLoc={50,50,50,50};//where the player will go on the canvas
 }
 
+SDL_Rect Player::getPlayerLocation(){
+	return worldLoc;
+}
+
 void Player::eventHandler(SDL_Event event){
 	if(event.type==SDL_KEYDOWN){//when the key is pressed
 		switch(event.key.keysym.sym){
@@ -60,11 +64,11 @@ void Player::move(string movement){//the move method
 
 	else if (movement == "jump")
 	{
-		if (collision){
+		//if (collision){
 			collision = false;
 			gravityVelocity = -5;
-			worldLoc.y = (480 - spriteSheetLoc.h) - 1;
-		}
+			//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
+		//}
 		
 	}
 
