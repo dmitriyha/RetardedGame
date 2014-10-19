@@ -94,8 +94,6 @@ void Window::renderFrame(SDL_Rect playerLoc){
 	
 	
 
-	cout << (canvasSize.h - winHeight) << endl;
-
 	SDL_RenderCopy( renderer, canvas.getTexture(),&cameraLocation , &sceneSize );//render the the wanted part of the scene onto the screen
 	
 	

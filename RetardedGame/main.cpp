@@ -9,6 +9,7 @@
 #include "FpsCapper.h"
 #include "EnemyFactory.h"
 #include "Map.h"
+#include <vector>
 using namespace std;
 
 
@@ -35,10 +36,14 @@ int main(int argc,char ** argv)
 	Map map;
 	map.setTexturePointer(mapTexture);
 
+	vector<Enemy*> enemies;
+	enemies.push_back(EnemyFactory::create("enemy", box));//the factory method example
+	enemies.push_back(EnemyFactory::create("enemy", box));
+
 	Player p;//create a player object
 	p.setTexturePointer(box);//create a pointer to the spritesheet
 	
-	Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
+	//Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
 
 	if(win.windowExists()){
 		FpsCapper fps;//create a FPS capper
@@ -77,10 +82,18 @@ int main(int argc,char ** argv)
 			
 			map.render();
 
-			p.gravity();//gravity of the player
-			e->gravity();//gravity of the enemy
+			//p.gravity();//gravity of the player
+			//e->gravity();//gravity of the enemy
 
-			e->render();//render the enemy object
+			//e->render();//render the enemy object
+
+			for (int i = 0; enemies.size() > i; i++){
+				enemies.at(i)->render();
+				//enemies.at(i)->gravity();
+				cout << enemies.at(i)->collision(p.getPlayerLocation()) << endl;
+			}
+
+			
 			p.render();//render player to canvas
 			win.renderFrame(p.getPlayerLocation());//render canvas to screen
 			
