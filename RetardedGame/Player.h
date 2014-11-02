@@ -33,7 +33,7 @@ class Player : public Character
 		int previousTickCount=0;//the previous tick count
 		int flashTime = 0;//time ellapsed since last flash
 		int invulnTime = 0; //time passed since las collision
-		bool hit = false;
+		bool hit = false;//if the player is hit, makes hime flash
 };
 
 #endif // PLAYER_H
