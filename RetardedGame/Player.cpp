@@ -59,7 +59,8 @@ bool Player::isMoving(){//the moving flag
 
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
-	
+
+
 	Map map;
 	MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
 

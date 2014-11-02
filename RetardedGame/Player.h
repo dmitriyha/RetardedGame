@@ -7,7 +7,6 @@
 #include "Map.h"
 #include "MapStructure.h"
 
-
 class Player : public Character
 {
 	
