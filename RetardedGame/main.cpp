@@ -82,7 +82,7 @@ int main(int argc,char ** argv)
 			
 			map.render();
 
-			//p.gravity();//gravity of the player
+			p.gravity();//gravity of the player
 			//e->gravity();//gravity of the enemy
 
 			//e->render();//render the enemy object
@@ -96,6 +96,10 @@ int main(int argc,char ** argv)
 			
 			p.render();//render player to canvas
 			win.renderFrame(p.getPlayerLocation());//render canvas to screen
+
+			cout <<p.getPlayerLocation().y << "\n" ;
+
+			//cout << p.getPlayerLocation().x << p.getPlayerLocation().y << endl;
 			
 			string fpsText="The average FPS is: "+to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(),fpsText.c_str());
