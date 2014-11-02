@@ -36,6 +36,10 @@ void Character::gravity(){
 void Character::move(){//the move method
 }
 
+void Character::collisionHandler(bool _collision){
+
+}
+
 Character::~Character()
 {
 	//dtor

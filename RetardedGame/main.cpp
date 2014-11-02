@@ -14,8 +14,7 @@ using namespace std;
 
 
 
-int main(int argc,char ** argv)
-{
+int main(int argc,char ** argv){
 	SDL_Event event;//create an even to poll
 	Window win;//create a window
 	
@@ -53,6 +52,8 @@ int main(int argc,char ** argv)
 			fps.start(); //start point of the fps capper/counter
 			while(SDL_PollEvent( &event )){
 				
+
+
 				win.windowEventHandler(event);//checks if any window happened and handles them
 				p.eventHandler(event); //checks if any keyboard event happened
 				
@@ -75,7 +76,8 @@ int main(int argc,char ** argv)
 			
 			win.clearFrame();//clears the frame in preperation of the next frame
 			
-			if(p.isMoving()){//move player if keys are pressed
+
+			if (p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);
 			}
 			
@@ -85,14 +87,15 @@ int main(int argc,char ** argv)
 			//p.gravity();//gravity of the player
 			//e->gravity();//gravity of the enemy
 
-			//e->render();//render the enemy object
+			bool collision;
 
 			for (int i = 0; enemies.size() > i; i++){
 				enemies.at(i)->render();
 				//enemies.at(i)->gravity();
-				cout << enemies.at(i)->collision(p.getPlayerLocation()) << endl;
+				collision = enemies.at(i)->collision(p.getPlayerLocation());
 			}
 
+			p.collisionHandler(collision);
 			
 			p.render();//render player to canvas
 			win.renderFrame(p.getPlayerLocation());//render canvas to screen
