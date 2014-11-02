@@ -1,8 +1,8 @@
 #include "Player.h"
 
 Player::Player(){
-	spriteSheetLoc={0,0,50,50};//where the player sprite is on the sprite sheet
-	worldLoc={50,50,50,50};//where the player will go on the canvas
+	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
+	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -54,12 +54,12 @@ void Player::move(string movement){//the move method
 	//worldLoc.x++;
 	if (movement == "right")
 	{
-		worldLoc.x = worldLoc.x + 2;
+		worldLoc.x = worldLoc.x + movementSpeed;
 	}
 
 	else if (movement == "left")
 	{
-		worldLoc.x = worldLoc.x - 2;
+		worldLoc.x = worldLoc.x - movementSpeed;
 	}
 
 	else if (movement == "jump")
@@ -73,6 +73,47 @@ void Player::move(string movement){//the move method
 	}
 
 	//worldLoc.y++;
+}
+
+void Player::collisionHandler(bool collision){
+	if (previousTickCount == 0){
+		currentTickCount = SDL_GetTicks();
+		previousTickCount = SDL_GetTicks();
+	}
+	else{
+		previousTickCount = currentTickCount;
+		currentTickCount = SDL_GetTicks();
+	}
+
+	if (collision && invulnTime == 0){
+		hit = true;
+		lives--;
+	}
+	else if (invulnTime > 2000){
+		hit = false;
+		invulnTime = 0;
+	}
+
+	if (hit){
+		invulnTime += (currentTickCount - previousTickCount);
+		flashTime += (currentTickCount - previousTickCount);
+		if (flashTime > 200){
+			if (spriteSheetLoc.h > 0){
+				spriteSheetLoc.h = 0;
+				spriteSheetLoc.w = 0;
+			}
+			else{
+				spriteSheetLoc.h = spriteHeight;
+				spriteSheetLoc.w = spriteWidth;
+			}
+			flashTime = 0;
+		}
+	}
+	else{
+		flashTime = 0;
+		invulnTime = 0;
+		spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
+	}
 }
 
 Player::~Player()
