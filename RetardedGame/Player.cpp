@@ -98,9 +98,9 @@ void Player::move(string movement){//the move method
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = worldLoc.y / 50;
 
-		//cout << positionTiles[0] << "\n";
+		cout << positionTiles[0] << "\n";
 
-		//cout << positionTiles[1] << "\n";
+		cout << positionTiles[1] << "\n";
 
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
@@ -137,6 +137,17 @@ void Player::move(string movement){//the move method
 			//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
 		//}
 		
+	}
+
+	else if (movement == "block")
+	{
+		worldLoc.x = worldLoc.x;
+
+		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		//{
+
+		//}
+		gravityVelocity = 0;
 	}
 
 	//worldLoc.y++;

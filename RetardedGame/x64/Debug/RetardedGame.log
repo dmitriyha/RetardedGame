@@ -1,13 +1,8 @@
-﻿Build started 2014-11-02 16:04:35.
+﻿Build started 2014-11-02 20:49:29.
      1>Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\CL.exe /c /I"D:\GAME PROJECT\RetardedGame\\SDL\include" /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Map.cpp Player.cpp main.cpp
+         G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\CL.exe /c /I"D:\GAME PROJECT\RetardedGame\\SDL\include" /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Player.cpp
          Player.cpp
-         Map.cpp
-         Generating Code...
-         Compiling...
-         main.cpp
-         Generating Code...
        Link:
          G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\GAME PROJECT\RetardedGame\\SDL\lib\x64" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.lib" /MACHINE:X64 x64\Debug\Character.obj
          x64\Debug\Enemy.obj
@@ -25,11 +20,9 @@
          x64\Debug\TopHat.obj
          x64\Debug\Weapon.obj
          x64\Debug\Window.obj
-         LINK : D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.exe not found or not built by the last incremental link; performing full link
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          RetardedGame.vcxproj -> D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.exe
      1>Done Building Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.27
+Time Elapsed 00:00:00.77
