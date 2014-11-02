@@ -90,7 +90,7 @@ int main(int argc,char ** argv)
 			for (int i = 0; enemies.size() > i; i++){
 				enemies.at(i)->render();
 				//enemies.at(i)->gravity();
-				cout << enemies.at(i)->collision(p.getPlayerLocation()) << endl;
+				//cout << enemies.at(i)->collision(p.getPlayerLocation()) << endl;
 			}
 
 			

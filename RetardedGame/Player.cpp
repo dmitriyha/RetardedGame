@@ -3,6 +3,7 @@
 Player::Player(){
 	spriteSheetLoc={0,0,50,50};//where the player sprite is on the sprite sheet
 	worldLoc={50,50,50,50};//where the player will go on the canvas
+	//Map map = new Map();
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -52,14 +53,40 @@ bool Player::isMoving(){//the moving flag
 
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
+
+	int positionTiles[2];
+
 	if (movement == "right")
 	{
 		worldLoc.x = worldLoc.x + 2;
+		//cout << worldLoc.x;
+		//cout << "\n";
+
+		//cout << "\n";
+		//cout << worldLoc.y;
+		positionTiles[0] = (worldLoc.x + 50) / 50; //Adding 50 pixels, because player is 50px wide. HARDCODED
+		positionTiles[1] = worldLoc.y / 50;
+		
+		cout << positionTiles[0] << "\n";
+
+		cout << positionTiles[1] << "\n";
 	}
 
 	else if (movement == "left")
 	{
 		worldLoc.x = worldLoc.x - 2;
+		//cout << worldLoc.x;
+		//cout << "\n";
+		//cout << worldLoc.y;
+
+		positionTiles[0] = (worldLoc.x + 50) / 50; //Adding 50 pixels, because player is 50px wide. HARDCODED
+		positionTiles[1] = worldLoc.y / 50;
+
+		cout << positionTiles[0] << "\n";
+
+		cout << positionTiles[1] << "\n";
+
+		//cout << "\n";
 	}
 
 	else if (movement == "jump")
@@ -67,6 +94,13 @@ void Player::move(string movement){//the move method
 		//if (collision){
 			collision = false;
 			gravityVelocity = -5;
+			positionTiles[0] = worldLoc.x / 50;
+			positionTiles[1] = worldLoc.y / 50;
+
+			cout << positionTiles[0] << "\n";
+
+			cout << positionTiles[1] << "\n";
+
 			//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
 		//}
 		

@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Weapon.h"
 #include <SDL.h>
+#include "Map.h"
 
 class Player : public Character
 {
