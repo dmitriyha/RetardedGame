@@ -1,11 +1,40 @@
-﻿Build started 2014-11-02 14:11:25.
-     1>Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
+﻿Build started 11/2/2014 3:57:33 PM.
+     1>Project "C:\Users\Dima\Documents\GitHub\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\CL.exe /c /I"D:\GAME PROJECT\RetardedGame\\SDL\include" /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Player.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Dima\Documents\GitHub\RetardedGame\\SDL\include /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt FpsCapper.cpp Gadget.cpp Goggles.cpp Gun.cpp Item.cpp Player.cpp Shoes.cpp Texture.cpp TopHat.cpp Weapon.cpp
          Player.cpp
-     1>Player.cpp(64): error C2228: left of '.map' must have class/struct/union
-     1>Done Building Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" (Build target(s)) -- FAILED.
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         Weapon.cpp
+         TopHat.cpp
+         Texture.cpp
+         Shoes.cpp
+         Item.cpp
+         Gun.cpp
+         Goggles.cpp
+         Gadget.cpp
+         FpsCapper.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Dima\Documents\GitHub\RetardedGame\\SDL\lib\x64 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.lib" /MACHINE:X64 x64\Debug\Character.obj
+         x64\Debug\Enemy.obj
+         x64\Debug\EnemyFactory.obj
+         x64\Debug\FpsCapper.obj
+         x64\Debug\Gadget.obj
+         x64\Debug\Goggles.obj
+         x64\Debug\Gun.obj
+         x64\Debug\Item.obj
+         x64\Debug\main.obj
+         x64\Debug\Map.obj
+         x64\Debug\Player.obj
+         x64\Debug\Shoes.obj
+         x64\Debug\Texture.obj
+         x64\Debug\TopHat.obj
+         x64\Debug\Weapon.obj
+         x64\Debug\Window.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         RetardedGame.vcxproj -> C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.exe
+     1>Done Building Project "C:\Users\Dima\Documents\GitHub\RetardedGame\RetardedGame\RetardedGame.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.46
+Time Elapsed 00:00:01.27

@@ -5,6 +5,7 @@
 #include "Weapon.h"
 #include <SDL.h>
 #include "Map.h"
+#include "MapStructure.h"
 
 class Player : public Character
 {

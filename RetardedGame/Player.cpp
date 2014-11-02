@@ -60,8 +60,8 @@ bool Player::isMoving(){//the moving flag
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
 
-	Map map();
-	int mapArray[20][200] = map.map[20][200];
+	Map map;
+	MapStructure mapArray = map.getMap();
 
 	int positionTiles[2];
 
@@ -80,7 +80,7 @@ void Player::move(string movement){//the move method
 
 		cout << positionTiles[1] << "\n";
 
-		if (mapArray[positionTiles[1]][positionTiles[0]] == 0)
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
 			worldLoc.x = worldLoc.x + 2;
 		}
@@ -100,7 +100,7 @@ void Player::move(string movement){//the move method
 
 		//cout << positionTiles[1] << "\n";
 
-		if (mapArray[positionTiles[1]][positionTiles[0]] == 0)
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
 			worldLoc.x = worldLoc.x - 2;
 		}
