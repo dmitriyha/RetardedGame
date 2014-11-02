@@ -1,4 +1,4 @@
-﻿Build started 2014-11-02 12:58:08.
+﻿Build started 2014-11-02 13:14:31.
      1>Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\CL.exe /c /I"D:\GAME PROJECT\RetardedGame\\SDL\include" /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Player.cpp
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.77
+Time Elapsed 00:00:01.09
