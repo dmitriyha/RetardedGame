@@ -77,14 +77,31 @@ int main(int argc,char ** argv){
 			win.clearFrame();//clears the frame in preperation of the next frame
 			
 
-			if (p.isMoving()){//move player if keys are pressed
+			p.gravity();//gravity of the player
+
+			//Collision detection
+
+			
+			MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
+
+			if ((mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0))
+			{
+				cout << " OUCH!!!";
+				p.move("bottom");
+				//Lock movement here
+			}
+			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0)){
+				p.move("top");
+			}
+
+			if(p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);
 			}
 			
 			
 			map.render();
 
-			//p.gravity();//gravity of the player
+			
 			//e->gravity();//gravity of the enemy
 
 			bool collision;
@@ -92,13 +109,22 @@ int main(int argc,char ** argv){
 			for (int i = 0; enemies.size() > i; i++){
 				enemies.at(i)->render();
 				//enemies.at(i)->gravity();
+<<<<<<< HEAD
 				collision = enemies.at(i)->collision(p.getPlayerLocation());
+=======
+				//cout << enemies.at(i)->collision(p.getPlayerLocation()) << endl;
+>>>>>>> origin/collision-map
 			}
 
 			p.collisionHandler(collision);
 			
 			p.render();//render player to canvas
 			win.renderFrame(p.getPlayerLocation());//render canvas to screen
+
+			//cout <<p.getPlayerLocation().y << "\n" ;
+
+			
+			//cout << p.getPlayerLocation().x << p.getPlayerLocation().y << endl;
 			
 			string fpsText="The average FPS is: "+to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(),fpsText.c_str());

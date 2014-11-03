@@ -1,14 +1,10 @@
-﻿Build started 10/19/2014 1:16:26 PM.
-     1>Project "C:\Users\Dima\Documents\GitHub\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2014-11-02 20:49:29.
+     1>Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Dima\Documents\GitHub\RetardedGame\\SDL\include /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Enemy.cpp EnemyFactory.cpp main.cpp
-         main.cpp
-         Enemy.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         EnemyFactory.cpp
+         G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\CL.exe /c /I"D:\GAME PROJECT\RetardedGame\\SDL\include" /Zi /nologo /W3 /WX- /sdl- /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Player.cpp
+         Player.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\Dima\Documents\GitHub\RetardedGame\\SDL\lib\x64 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.lib" /MACHINE:X64 x64\Debug\Character.obj
+         G:\Program Files (x86)\Visual Studio\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\GAME PROJECT\RetardedGame\\SDL\lib\x64" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib SDL2.lib SDL2main.lib SDL2_image.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.lib" /MACHINE:X64 x64\Debug\Character.obj
          x64\Debug\Enemy.obj
          x64\Debug\EnemyFactory.obj
          x64\Debug\FpsCapper.obj
@@ -24,9 +20,9 @@
          x64\Debug\TopHat.obj
          x64\Debug\Weapon.obj
          x64\Debug\Window.obj
-         RetardedGame.vcxproj -> C:\Users\Dima\Documents\GitHub\RetardedGame\x64\Debug\RetardedGame.exe
-     1>Done Building Project "C:\Users\Dima\Documents\GitHub\RetardedGame\RetardedGame\RetardedGame.vcxproj" (Build target(s)).
+         RetardedGame.vcxproj -> D:\GAME PROJECT\RetardedGame\x64\Debug\RetardedGame.exe
+     1>Done Building Project "D:\GAME PROJECT\RetardedGame\RetardedGame\RetardedGame.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.36
+Time Elapsed 00:00:00.77

@@ -1,8 +1,11 @@
 #include "Player.h"
+#include "Map.h"
+
 
 Player::Player(){
 	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
 	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
+
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -10,6 +13,8 @@ SDL_Rect Player::getPlayerLocation(){
 }
 
 void Player::eventHandler(SDL_Event event){
+
+
 	if(event.type==SDL_KEYDOWN){//when the key is pressed
 		switch(event.key.keysym.sym){
 			case SDLK_RIGHT:
@@ -40,7 +45,7 @@ void Player::eventHandler(SDL_Event event){
 				break;
 
 			case SDLK_a:
-				moving = false;
+				moving = false;			
 				break;
 		}
 	}
@@ -52,24 +57,107 @@ bool Player::isMoving(){//the moving flag
 
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
+
+
+	Map map;
+	MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
+
+
+	int positionTiles[2];
+
 	if (movement == "right")
 	{
-		worldLoc.x = worldLoc.x + movementSpeed;
+		
+		//cout << worldLoc.x;
+		//cout << "\n";
+
+		//cout << "\n";
+		//cout << worldLoc.y;
+		positionTiles[0] = (worldLoc.x + 50) / 50; //Adding 50 pixels, because player is 50px wide. HARDCODED
+		positionTiles[1] = worldLoc.y / 50;
+		
+		cout << positionTiles[0] << "\n";
+
+		cout << positionTiles[1] << "\n";
+
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		{
+			worldLoc.x = worldLoc.x + 2;
+		}
 	}
 
 	else if (movement == "left")
 	{
-		worldLoc.x = worldLoc.x - movementSpeed;
+		
+		//cout << worldLoc.x;
+		//cout << "\n";
+		//cout << worldLoc.y;
+
+		positionTiles[0] = worldLoc.x / 50;
+		positionTiles[1] = worldLoc.y / 50;
+
+		cout << positionTiles[0] << "\n";
+
+		cout << positionTiles[1] << "\n";
+
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		{
+			worldLoc.x = worldLoc.x - 2;
+		}
+
+		//cout << "\n";
 	}
 
 	else if (movement == "jump")
 	{
 		//if (collision){
 			collision = false;
-			gravityVelocity = -5;
+
+
+			//gravityVelocity = -5;
+			positionTiles[0] = worldLoc.x / 50;
+			positionTiles[1] = worldLoc.y / 50;
+
+			//cout << positionTiles[0] << "\n";
+
+			//cout << positionTiles[1] << "\n";
+
+			//if (map[positionTiles[1]][positionTiles[0]] == 0)
+			//{
+				gravityVelocity = -5;
+			//}
+
+			//else
+			//{
+			//	gravityVelocity = 0;
+			//}
+
 			//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
 		//}
 		
+	}
+
+	else if (movement == "bottom")
+	{
+		worldLoc.x = worldLoc.x;
+		worldLoc.y = (worldLoc.y/50)*50;
+
+		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		//{
+
+		//}
+		gravityVelocity = 0;
+	}
+	else if (movement == "top") 
+	{
+		worldLoc.x = worldLoc.x;
+		worldLoc.y = ((worldLoc.y+50) / 50) * 50;
+
+		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		//{
+
+		//}
+		gravityVelocity = 0;
 	}
 
 	//worldLoc.y++;

@@ -159,6 +159,7 @@
     <ClInclude Include="Gun.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MapStructure.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shoes.h" />
     <ClInclude Include="Texture.h" />
