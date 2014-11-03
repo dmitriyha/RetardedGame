@@ -75,6 +75,23 @@ int main(int argc,char ** argv)
 			
 			win.clearFrame();//clears the frame in preperation of the next frame
 			
+			p.gravity();//gravity of the player
+
+			//Collision detection
+
+			
+			MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
+
+			if ((mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0))
+			{
+				cout << " OUCH!!!";
+				p.move("bottom");
+				//Lock movement here
+			}
+			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0)){
+				p.move("top");
+			}
+
 			if(p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);
 			}
@@ -82,7 +99,7 @@ int main(int argc,char ** argv)
 			
 			map.render();
 
-			p.gravity();//gravity of the player
+			
 			//e->gravity();//gravity of the enemy
 
 			//e->render();//render the enemy object
@@ -99,17 +116,7 @@ int main(int argc,char ** argv)
 
 			//cout <<p.getPlayerLocation().y << "\n" ;
 
-			//Collision detection
-
-			Map map;
-			MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
-
-			if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0))
-			{
-				cout << " OUCH!!!";
-				p.move("block");
-				//Lock movement here
-			}
+			
 			//cout << p.getPlayerLocation().x << p.getPlayerLocation().y << endl;
 			
 			string fpsText="The average FPS is: "+to_string(fps.getAvgFps());

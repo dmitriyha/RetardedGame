@@ -139,9 +139,21 @@ void Player::move(string movement){//the move method
 		
 	}
 
-	else if (movement == "block")
+	else if (movement == "bottom")
 	{
 		worldLoc.x = worldLoc.x;
+		worldLoc.y = (worldLoc.y/50)*50;
+
+		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		//{
+
+		//}
+		gravityVelocity = 0;
+	}
+	else if (movement == "top") 
+	{
+		worldLoc.x = worldLoc.x;
+		worldLoc.y = ((worldLoc.y+50) / 50) * 50;
 
 		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		//{
