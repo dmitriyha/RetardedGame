@@ -1,6 +1,8 @@
 #include "Character.h"
 
 void Character::render(){
+
+
 	SDL_RenderCopy( texture->getRenderer(), texture->getTexture(), &spriteSheetLoc, &worldLoc ); //render the sprite to the canvas
 }
 
