@@ -60,13 +60,16 @@ void Game::run(){
 
 			if ((mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x) / 50] != 0))
 			{
-				cout << " OUCH!!!";
+				cout << " OUCH!!! FLOOR";
 				p.move("bottom");
 				//Lock movement here
 			}
 			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
 				p.move("top");
+				cout << " OUCH!!! ROOF";
 			}
+
+
 
 			if (p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);

@@ -79,11 +79,28 @@ void Player::move(string movement){//the move method
 		cout << positionTiles[0] << "\n";
 
 		cout << positionTiles[1] << "\n";
+		
 
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		/*
+
+		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + 50)/ 50][positionTiles[0]] != 0))
+		{
+			worldLoc.x = worldLoc.x;
+			//worldLoc.y = (worldLoc.y / 50) * 50;
+
+		}
+		else if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		{
+			worldLoc.x = worldLoc.x;
+		}
+
+		*/
+
+		if(mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
 			worldLoc.x = worldLoc.x + 2;
 		}
+
 	}
 
 	else if (movement == "left")
@@ -139,14 +156,32 @@ void Player::move(string movement){//the move method
 
 	else if (movement == "bottom")
 	{
-		worldLoc.x = worldLoc.x;
-		worldLoc.y = (worldLoc.y/50)*50;
+		int right = (worldLoc.x + 50) / 50;
+		int left = worldLoc.x / 50;
+		positionTiles[1] = worldLoc.y / 50;
 
-		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
-		//{
+		if (((mapArray.map[positionTiles[1]][right] != 0) || (mapArray.map[positionTiles[1]][left] != 0)))
 
-		//}
-		gravityVelocity = 0;
+		{
+			if ((mapArray.map[positionTiles[1] + 1][right - 1] != 0) || (mapArray.map[positionTiles[1] + 1][left - 1] != 0))
+			{
+				gravityVelocity = 0;
+			}
+			
+			else
+			{
+				gravityVelocity = 4;
+			}
+
+
+		}
+		else
+		{
+			worldLoc.y = (worldLoc.y / 50) * 50;
+			worldLoc.x = worldLoc.x;
+			gravityVelocity = 0;
+		}
+				
 	}
 	else if (movement == "top") 
 	{
