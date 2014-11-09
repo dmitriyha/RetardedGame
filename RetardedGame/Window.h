@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
+#include <vector>
 #include "Texture.h"
 using namespace std;
 
@@ -21,7 +22,7 @@ class Window
 	public:
 		bool resized;
 		Window();
-		void setCanvasSize(Texture* texture);
+		void setCanvasSize(vector<Texture*> texture);
 		void clearFrame();
 		void renderFrame(SDL_Rect playerLoc);
 		void windowEventHandler(SDL_Event event);

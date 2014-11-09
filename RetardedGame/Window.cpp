@@ -47,10 +47,11 @@ Window::Window(){
 	
 }
 
-void Window::setCanvasSize(Texture* texture){
+void Window::setCanvasSize(vector<Texture*> texture){
 	//if window was created, initialise the canvas
 	if (success){
-		canvasSize=texture->getSize();
+		canvasSize=texture.at(0)->getSize();
+		canvasSize.w *= 3;
 		canvas.setRenderer(renderer);
 		canvas.makeBlankTexture(canvasSize.w, canvasSize.h);
 	}
@@ -85,6 +86,7 @@ void Window::renderFrame(SDL_Rect playerLoc){
 	if ((playerCenterY - cameraCenterY) < 0){
 		cameraLocation.y = 0;
 	}
+
 	else if (playerCenterY + (winHeight / 2)>(canvasSize.h)){
 		cameraLocation.y = canvasSize.h - winHeight;
 	}
@@ -92,7 +94,7 @@ void Window::renderFrame(SDL_Rect playerLoc){
 		cameraLocation.y = playerCenterY - cameraCenterY;
 	}
 	
-	
+	//cout<<
 
 	SDL_RenderCopy( renderer, canvas.getTexture(),&cameraLocation , &sceneSize );//render the the wanted part of the scene onto the screen
 	

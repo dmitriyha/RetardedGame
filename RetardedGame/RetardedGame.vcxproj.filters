@@ -148,5 +148,11 @@
     <Image Include="Images\BasicMap.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Images\map1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\map2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -36,11 +36,26 @@ Map::Map()
 }
 
 
-void Map::render(){
-	SDL_RenderCopy(texture->getRenderer(), texture->getTexture(), NULL, NULL); //render the sprite to the canvas
+void Map::render(SDL_Rect playerLoc){
+	float xLoc = playerLoc.x / 1000;
+	int firstTexture=0;
+	if (xLoc < 1){
+		firstTexture = xLoc;
+	}
+	else if (xLoc > 0){
+		firstTexture = xLoc-1;
+	}
+
+	for (int i = 0; i < 3; i++){
+		SDL_Rect size = {((i) * 1000), 0, 1000, 1000 };
+		SDL_RenderCopy(texture.at(firstTexture + i)->getRenderer(), texture.at(firstTexture + i)->getTexture(), NULL, &size); //render the sprite to the canvas
+
+	}
+
+	
 }
 
-void Map::setTexturePointer(Texture* _texture){
+void Map::setTexturePointer(vector<Texture*> _texture){
 	texture = _texture;//set the texture pointer
 
 }

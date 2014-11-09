@@ -16,7 +16,11 @@ using namespace std;
 
 class Game{
 	const string characterPictures = "Images\\lol.png";
-	const string mapPicture = "Images\\BasicMap.png";
+	const string mapString1 = "Images\\map1.png";
+	const string mapString2 = "Images\\map2.png";
+	const string mapString3 = "Images\\map3.png";
+	const string mapString4 = "Images\\map4.png";
+	vector<Texture*> mapTextures;
 
 	SDL_Event event;//create an even to poll
 	Window win;//create a window
@@ -24,7 +28,10 @@ class Game{
 	Player p;//create a player object
 	vector<Enemy*> enemies;
 	Texture* box;
-	Texture* mapTexture;
+	Texture* map1;
+	Texture* map2;
+	Texture* map3;
+	Texture* map4;
 
 	bool collision;
 public:

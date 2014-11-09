@@ -80,8 +80,8 @@ void Player::move(string movement){//the move method
 
 		cout << positionTiles[1] << "\n";
 
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
-		{
+		if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
+		
 			worldLoc.x = worldLoc.x + 2;
 		}
 	}

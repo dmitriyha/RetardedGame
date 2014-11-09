@@ -4,13 +4,16 @@
 
 Game::Game(){
 	box = new Texture(); //create a new texture. This will be the universal sprite sheet texture
-	mapTexture = new Texture(); //create a new texture. This will be the universal sprite sheet texture
+	map1 = new Texture(); //create a new texture. This will be the universal sprite sheet texture
+	map2 = new Texture();
+	map3 = new Texture();
+	map4 = new Texture();
 
 	setTextures();
 
-	win.setCanvasSize(mapTexture);
+	win.setCanvasSize(mapTextures);
 
-	map.setTexturePointer(mapTexture);
+	map.setTexturePointer(mapTextures);
 
 	
 	enemies.push_back(EnemyFactory::create("enemy", box));//the factory method example
@@ -73,7 +76,7 @@ void Game::run(){
 			}
 
 
-			map.render();
+			map.render(p.getPlayerLocation());
 
 
 			//e->gravity();//gravity of the enemy
@@ -115,15 +118,31 @@ void Game::render(){
 }
 
 void Game::setTextures(){
+
 	box->setRenderer(win.getRenderer());
 	box->makeTexture(characterPictures);
-	mapTexture->setRenderer(win.getRenderer());
-	mapTexture->makeTexture(mapPicture);
+
+	map1->setRenderer(win.getRenderer());
+	map1->makeTexture(mapString1);
+	mapTextures.push_back(map1);
+
+	map2->setRenderer(win.getRenderer());
+	map2->makeTexture(mapString2);
+	mapTextures.push_back(map2);
+
+	map3->setRenderer(win.getRenderer());
+	map3->makeTexture(mapString3);
+	mapTextures.push_back(map3);
+
+	map4->setRenderer(win.getRenderer());
+	map4->makeTexture(mapString4);
+	mapTextures.push_back(map4);
 }
 
 Game::~Game(){
 	delete box;
-	delete mapTexture;
+	delete map1;
+	delete map2;
 	for (int i = 0; enemies.size() > i; i++){
 		delete enemies.at(i);
 	}
