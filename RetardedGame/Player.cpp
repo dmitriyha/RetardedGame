@@ -8,6 +8,13 @@ Player::Player(){
 
 }
 
+void Player::render(){
+
+
+
+	Character::render();
+}
+
 SDL_Rect Player::getPlayerLocation(){
 	return worldLoc;
 }
