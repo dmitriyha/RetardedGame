@@ -44,7 +44,6 @@ void Texture::makeBlankTexture(int _width, int _height){//makes a canvas
 	else { 
 		width = _width; 
 		height = _height;
-		cout<<width<<" "<<height<<endl;
 	} 
 }
 

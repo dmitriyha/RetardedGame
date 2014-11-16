@@ -94,7 +94,6 @@ void Window::renderFrame(SDL_Rect playerLoc){
 		cameraLocation.y = playerCenterY - cameraCenterY;
 	}
 	
-	//cout<<
 
 	SDL_RenderCopy( renderer, canvas.getTexture(),&cameraLocation , &sceneSize );//render the the wanted part of the scene onto the screen
 	
