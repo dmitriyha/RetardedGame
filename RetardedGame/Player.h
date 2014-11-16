@@ -43,7 +43,15 @@ class Player : public Character
 
 		bool hit = false;//if the player is hit, makes hime flash
 
+		bool ducking = false;
+		bool wasDucking = false;
+
 		vector <SDL_Rect> rectList;
+
+		SDL_Rect duckStart;
+		SDL_Rect duck;
+		SDL_Rect duckBlink;
+		
 };
 
 #endif // PLAYER_H

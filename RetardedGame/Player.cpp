@@ -3,30 +3,55 @@
 
 
 Player::Player(){
-	//spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
+	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
 	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
+
+	duckStart = { 720, 0, 68, 58 };
+	duck = { 788, 0, 68, 58 };
+	duckBlink = { 856, 0, 68, 58 };
 
 	for (int i = 0; i < 18; i++){
 		SDL_Rect rect = { spriteWidth * i, 0, spriteWidth, spriteHeight };
 		rectList.push_back(rect);
 	}
 
+
 }
 
 void Player::render(){
 	animationTimer += currentTickCount - previousTickCount;
-	if (animationTimer > 200){
+	if (animationTimer > 150){
 		frame++;
-		cout << frame << endl;
-		animationTimer = 0;
-		
+
 		if (frame == 18) {
 			frame = 0;
 		}
-		spriteSheetLoc = rectList.at(frame);
-		
+
+		if (ducking){
+			if (animationTimer>150 && animationTimer< 300){
+				spriteSheetLoc = duckStart;
+			}
+			else if (animationTimer >= 300 && animationTimer < 2300){
+				spriteSheetLoc = duck;
+			}
+			else if (animationTimer > 2450){
+				spriteSheetLoc = duckBlink;
+			}
+			else {
+				animationTimer = 300;
+			}
+		}
+		else if (wasDucking){
+			spriteSheetLoc = duckStart;
+			wasDucking = false;
+			animationTimer = 0;
+		}
+
+		else{
+			spriteSheetLoc = rectList.at(frame);
+			animationTimer = 0;
+		}
 	}
-	
 	Character::render();
 }
 
@@ -49,6 +74,12 @@ void Player::eventHandler(SDL_Event event){
 				movement = "left";
 				break;
 
+			case SDLK_DOWN:
+				moving = false;
+				ducking=true;
+				animationTimer = 0;
+				break;
+
 			case SDLK_a:
 				moving = true;
 				movement = "jump";
@@ -64,6 +95,11 @@ void Player::eventHandler(SDL_Event event){
 
 			case SDLK_LEFT:
 				moving = false;
+				break;
+
+			case SDLK_DOWN:
+				ducking = false;
+				wasDucking = true;
 				break;
 
 			case SDLK_a:
@@ -145,6 +181,10 @@ void Player::move(string movement){//the move method
 		}
 
 		//cout << "\n";
+	}
+
+	else if (movement == "duck"){
+
 	}
 
 	else if (movement == "jump")
