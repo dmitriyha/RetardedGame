@@ -155,6 +155,8 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\map2.png">
+		<Filter>Resource Files</Filter>
+    </Image>
     <Image Include="Images\tail_sprite2x.png">
       <Filter>Resource Files</Filter>
     </Image>
