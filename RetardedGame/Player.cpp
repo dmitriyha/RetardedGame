@@ -6,6 +6,53 @@ Player::Player(){
 	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
 	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
 
+	duckStart = { 720, 0, 68, 58 };
+	duck = { 788, 0, 68, 58 };
+	duckBlink = { 856, 0, 68, 58 };
+
+	for (int i = 0; i < 18; i++){
+		SDL_Rect rect = { spriteWidth * i, 0, spriteWidth, spriteHeight };
+		rectList.push_back(rect);
+	}
+
+
+}
+
+void Player::render(){
+	animationTimer += currentTickCount - previousTickCount;
+	if (animationTimer > 150){
+		frame++;
+
+		if (frame == 18) {
+			frame = 0;
+		}
+
+		if (ducking){
+			if (animationTimer>150 && animationTimer< 300){
+				spriteSheetLoc = duckStart;
+			}
+			else if (animationTimer >= 300 && animationTimer < 2300){
+				spriteSheetLoc = duck;
+			}
+			else if (animationTimer > 2450){
+				spriteSheetLoc = duckBlink;
+			}
+			else {
+				animationTimer = 300;
+			}
+		}
+		else if (wasDucking){
+			spriteSheetLoc = duckStart;
+			wasDucking = false;
+			animationTimer = 0;
+		}
+
+		else{
+			spriteSheetLoc = rectList.at(frame);
+			animationTimer = 0;
+		}
+	}
+	Character::render();
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -27,6 +74,12 @@ void Player::eventHandler(SDL_Event event){
 				movement = "left";
 				break;
 
+			case SDLK_DOWN:
+				moving = false;
+				ducking=true;
+				animationTimer = 0;
+				break;
+
 			case SDLK_a:
 				moving = true;
 				movement = "jump";
@@ -42,6 +95,11 @@ void Player::eventHandler(SDL_Event event){
 
 			case SDLK_LEFT:
 				moving = false;
+				break;
+
+			case SDLK_DOWN:
+				ducking = false;
+				wasDucking = true;
 				break;
 
 			case SDLK_a:
@@ -79,11 +137,26 @@ void Player::move(string movement){//the move method
 		cout << positionTiles[0] << "\n";
 
 		cout << positionTiles[1] << "\n";
-
-		if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
 		
+
+
+		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + 50)/ 50][positionTiles[0]] != 0))
+		{
+			worldLoc.x = worldLoc.x;
+			//worldLoc.y = (worldLoc.y / 50) * 50;
+
+		}
+		else if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		{
+			worldLoc.x = worldLoc.x;
+		}
+
+		*/
+
+		if(mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 			worldLoc.x = worldLoc.x + 2;
 		}
+
 	}
 
 	else if (movement == "left")
@@ -107,6 +180,7 @@ void Player::move(string movement){//the move method
 
 		//cout << "\n";
 	}
+
 
 	else if (movement == "jump")
 	{
@@ -139,14 +213,32 @@ void Player::move(string movement){//the move method
 
 	else if (movement == "bottom")
 	{
-		worldLoc.x = worldLoc.x;
-		worldLoc.y = (worldLoc.y/50)*50;
+		int right = (worldLoc.x + worldLoc.w) / 50;
+		int left = worldLoc.x / 50;
+		int top = worldLoc.y / 50;
+		int bottom = (worldLoc.y + worldLoc.h) / 50;
 
-		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
-		//{
+		if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){
 
-		//}
-		gravityVelocity = 0;
+			if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
+			{
+				gravityVelocity = 0;
+			}
+			
+			else
+			{
+				gravityVelocity = 4;
+			}
+
+
+		}
+		else
+		{
+			worldLoc.y = (((worldLoc.y+50) / 50) * 50) - (worldLoc.h-50);
+			worldLoc.x = worldLoc.x;
+			gravityVelocity = 0;
+		}
+				
 	}
 	else if (movement == "top") 
 	{
@@ -200,7 +292,7 @@ void Player::collisionHandler(bool collision){
 	else{//reset times and texture
 		flashTime = 0;
 		invulnTime = 0;
-		spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
+		//spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
 	}
 }
 

@@ -15,6 +15,7 @@
 using namespace std;
 
 class Game{
+	const string playerPicture = "Images\\tail_sprite2x.png";
 	const string characterPictures = "Images\\lol.png";
 	const string mapString1 = "Images\\map1.png";
 	const string mapString2 = "Images\\map2.png";
@@ -32,6 +33,8 @@ class Game{
 	Texture* map2;
 	Texture* map3;
 	Texture* map4;
+	Texture* player;
+	Texture* mapTexture;
 
 	bool collision;
 public:

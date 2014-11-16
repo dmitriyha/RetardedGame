@@ -9,6 +9,9 @@ Game::Game(){
 	map3 = new Texture();
 	map4 = new Texture();
 
+	mapTexture = new Texture(); //create a new texture. This will be the universal sprite sheet texture
+	player = new Texture();
+
 	setTextures();
 
 	win.setCanvasSize(mapTextures);
@@ -20,7 +23,7 @@ Game::Game(){
 	enemies.push_back(EnemyFactory::create("enemy", box));
 
 	
-	p.setTexturePointer(box);//create a pointer to the spritesheet
+	p.setTexturePointer(player);//create a pointer to the spritesheet
 
 	//Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
 }
@@ -61,15 +64,20 @@ void Game::run(){
 
 			MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
 
-			if ((mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0))
+			SDL_Rect playerSize = p.getPlayerLocation();
+
+			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray.map[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
 			{
-				cout << " OUCH!!!";
+				//cout << " OUCH!!! FLOOR";
 				p.move("bottom");
 				//Lock movement here
 			}
-			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0)){
+			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
 				p.move("top");
+				//cout << " OUCH!!! ROOF";
 			}
+
+
 
 			if (p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);
@@ -118,6 +126,9 @@ void Game::render(){
 }
 
 void Game::setTextures(){
+=======
+	player->setRenderer(win.getRenderer());
+	player->makeTexture(playerPicture);
 
 	box->setRenderer(win.getRenderer());
 	box->makeTexture(characterPictures);

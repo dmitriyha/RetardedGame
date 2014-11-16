@@ -3,6 +3,8 @@
 void Character::render(){
 
 
+	worldLoc.h = spriteSheetLoc.h;
+	worldLoc.w = spriteSheetLoc.w;
 	SDL_RenderCopy( texture->getRenderer(), texture->getTexture(), &spriteSheetLoc, &worldLoc ); //render the sprite to the canvas
 }
 

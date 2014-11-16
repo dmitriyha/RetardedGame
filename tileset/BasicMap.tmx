@@ -15,7 +15,7 @@
  </layer>
  <layer name="Tile Layer 2 - CHARACTER" width="200" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmtsKAjEMBasi4v7/B8s+FMohvWmaLjgDQalVCp4hKXpPKd2pbsF/8s13vzurZBmi+CVPnhnGDbgiHpnyzC5ewJXwypZ3ZvEDroCVtYfsuUmNfNaqs+EGRJIz9ioez8qOWF60XGn588v5cAN2UDqRK6+djmjvsCrijLgBOyj9sFyxHEkpzo3ynPgB0ZRelNnTPnIS6YMFbkA0tb6ha3pn3wV+QCTqhHqh89fuuwB+QCQ6X7Wc0B5jufVcfF78gEi0T/Q8aO05199prSP4AZHkTJels1O5bj23aoUjvd8xAbxRL9SRWv5H9no6Urv34AisxOobLQ+s3tHqKx6OqBOHsYYrsAKdp1p9YuY1L0csN3LRU2A1tTtHb76adaT3P6qROoyaeT/ALLUcj2R+plq51dlN12tufOsJHsEoHyefCeY=
+   eJztmusKwjAMRstExL3/A4/9KJSQ3mbSBjwHghI3EfwOSdEjpXRQ3YL/5Ml3vzurZBlW8UueLDOMGxARi0xZZhcvIBJW2bLOLH5ABLSsvQzeywLcgN3kjH2Kx7ueOmINbsBOSidy5V50RwC8Kf3QXInsCIA3pRdl9qLPEYAV1OaG7EVzBGAF0gnphdy/dp8F8ANWIverlhNyxmhuvZ0/L37ASuSc6HnQuubuf5OvI/gBK8mZLkvuTmVfe66VhyNWv2MCjCK9kI7U8j9yraUjtXMPjoAn2txoeaDNjtZcsXBEOnEqPVwBD+Q+1ZoTM69ZOaK5kYuZAt7Uzhy9/WrWkd7/qEbqVGrmfoBZajkeyfxMtXIrdzfZr7nx1BM8glEuzZgJyw==
   </data>
  </layer>
  <layer name="Tile Layer 1" width="200" height="20" visible="0">
