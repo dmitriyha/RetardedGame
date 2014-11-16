@@ -1,7 +1,9 @@
 #pragma once
+
+#include <vector>
 #include "Texture.h"
 #include "MapStructure.h"
-#include <vector>
+#include "CoordinateStruct.h"
 
 class Map
 {
@@ -11,7 +13,7 @@ class Map
 
 public:
 	Map();
-	void render(SDL_Rect playerLoc);
+	CoordinateStruct render(SDL_Rect playerLoc);
 	void setTexturePointer(vector<Texture*> _texture );
 	MapStructure getMap();
 	

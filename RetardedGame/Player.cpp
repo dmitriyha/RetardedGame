@@ -59,6 +59,10 @@ SDL_Rect Player::getPlayerLocation(){
 	return worldLoc;
 }
 
+SDL_Rect Player::getRelativePlayerLocation(){
+	return relativeLoc;
+}
+
 void Player::eventHandler(SDL_Event event){
 
 
@@ -126,17 +130,12 @@ void Player::move(string movement){//the move method
 	if (movement == "right")
 	{
 		
-		//cout << worldLoc.x;
-		//cout << "\n";
-
-		//cout << "\n";
-		//cout << worldLoc.y;
 		positionTiles[0] = (worldLoc.x + 50) / 50; //Adding 50 pixels, because player is 50px wide. HARDCODED
 		positionTiles[1] = worldLoc.y / 50;
-		
-		cout << positionTiles[0] << "\n";
 
 		cout << positionTiles[1] << "\n";
+
+		if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
 		
 
 
@@ -168,10 +167,6 @@ void Player::move(string movement){//the move method
 
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = worldLoc.y / 50;
-
-		cout << positionTiles[0] << "\n";
-
-		cout << positionTiles[1] << "\n";
 
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
