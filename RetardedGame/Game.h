@@ -15,7 +15,7 @@
 using namespace std;
 
 class Game{
-	const string playerPicture "Images\\";
+	const string playerPicture = "Images\\tail_sprite2x.png";
 	const string characterPictures = "Images\\lol.png";
 	const string mapPicture = "Images\\BasicMap.png";
 

@@ -13,6 +13,7 @@ class Player : public Character
 	public:
 		Player();
 		SDL_Rect getPlayerLocation();
+		void render();
 		void eventHandler(SDL_Event event);
 		bool isMoving();
 		string movement;
@@ -28,8 +29,8 @@ class Player : public Character
 		Weapon weapon;//weapon being used at the moment
 		string position;//what's the position, for example: looking up, idle, duck etc...
 
-		const int spriteWidth = 50;//the width of the sprite
-		const int spriteHeight = 50;//the height of the sprite
+		const int spriteWidth = 40;//the width of the sprite
+		const int spriteHeight = 58;//the height of the sprite
 
 		int currentTickCount=0;//the timer ticks
 		int previousTickCount=0;//the previous tick count

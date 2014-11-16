@@ -156,14 +156,14 @@ void Player::move(string movement){//the move method
 
 	else if (movement == "bottom")
 	{
-		int right = (worldLoc.x + 50) / 50;
+		int right = (worldLoc.x + worldLoc.w) / 50;
 		int left = worldLoc.x / 50;
-		positionTiles[1] = worldLoc.y / 50;
+		int top = worldLoc.y / 50;
+		int bottom = (worldLoc.y + worldLoc.h) / 50;
 
-		if (((mapArray.map[positionTiles[1]][right] != 0) || (mapArray.map[positionTiles[1]][left] != 0)))
+		if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){
 
-		{
-			if ((mapArray.map[positionTiles[1] + 1][right - 1] != 0) || (mapArray.map[positionTiles[1] + 1][left - 1] != 0))
+			if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
 			{
 				gravityVelocity = 0;
 			}
@@ -177,7 +177,7 @@ void Player::move(string movement){//the move method
 		}
 		else
 		{
-			worldLoc.y = (worldLoc.y / 50) * 50;
+			worldLoc.y = (((worldLoc.y+50) / 50) * 50) - (worldLoc.h-50);
 			worldLoc.x = worldLoc.x;
 			gravityVelocity = 0;
 		}

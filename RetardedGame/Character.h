@@ -9,7 +9,7 @@ using namespace std;
 class Character
 {
 	public:
-		void render();
+		virtual void render();
 		void setTexturePointer(Texture* _texture);
 		void gravity();
 		virtual void move();

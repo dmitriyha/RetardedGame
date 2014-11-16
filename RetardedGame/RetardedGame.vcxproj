@@ -173,6 +173,7 @@
     <Image Include="Images\BasicMap.png" />
     <Image Include="Images\img.png" />
     <Image Include="Images\lol.png" />
+    <Image Include="Images\tail_sprite2x.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
