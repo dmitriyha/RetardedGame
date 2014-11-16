@@ -124,7 +124,6 @@ void Game::render(){
 }
 
 void Game::setTextures(){
-=======
 	player->setRenderer(win.getRenderer());
 	player->makeTexture(playerPicture);
 

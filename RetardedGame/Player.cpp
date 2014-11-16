@@ -150,8 +150,7 @@ void Player::move(string movement){//the move method
 			worldLoc.x = worldLoc.x;
 		}
 
-		*/
-
+		
 		if(mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 			worldLoc.x = worldLoc.x + 2;
 		}
