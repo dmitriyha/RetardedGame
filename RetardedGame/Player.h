@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "Weapon.h"
 #include <SDL.h>
+#include <vector>
 #include "Map.h"
 #include "MapStructure.h"
 
@@ -36,7 +37,13 @@ class Player : public Character
 		int previousTickCount=0;//the previous tick count
 		int flashTime = 0;//time ellapsed since last flash
 		int invulnTime = 0; //time passed since las collision
+
+		int animationTimer = 0;
+		int frame = 0;
+
 		bool hit = false;//if the player is hit, makes hime flash
+
+		vector <SDL_Rect> rectList;
 };
 
 #endif // PLAYER_H

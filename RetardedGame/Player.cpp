@@ -3,15 +3,30 @@
 
 
 Player::Player(){
-	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
+	//spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
 	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
+
+	for (int i = 0; i < 18; i++){
+		SDL_Rect rect = { spriteWidth * i, 0, spriteWidth, spriteHeight };
+		rectList.push_back(rect);
+	}
 
 }
 
 void Player::render(){
-
-
-
+	animationTimer += currentTickCount - previousTickCount;
+	if (animationTimer > 200){
+		frame++;
+		cout << frame << endl;
+		animationTimer = 0;
+		
+		if (frame == 18) {
+			frame = 0;
+		}
+		spriteSheetLoc = rectList.at(frame);
+		
+	}
+	
 	Character::render();
 }
 
@@ -242,7 +257,7 @@ void Player::collisionHandler(bool collision){
 	else{//reset times and texture
 		flashTime = 0;
 		invulnTime = 0;
-		spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
+		//spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
 	}
 }
 

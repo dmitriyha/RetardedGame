@@ -63,13 +63,13 @@ void Game::run(){
 
 			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray.map[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
 			{
-				cout << " OUCH!!! FLOOR";
+				//cout << " OUCH!!! FLOOR";
 				p.move("bottom");
 				//Lock movement here
 			}
 			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
 				p.move("top");
-				cout << " OUCH!!! ROOF";
+				//cout << " OUCH!!! ROOF";
 			}
 
 
