@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include "Map.h"
 #include "MapStructure.h"
+#include "CoordinateStruct.h"
 
 class Player : public Character
 {
@@ -19,6 +20,7 @@ class Player : public Character
 		string movement;
 		void move(string direction);
 		void collisionHandler(bool collision);
+		void setRelativeCoord(CoordinateStruct coord){ location = coord; }
 		~Player();
 	protected:
 	private:

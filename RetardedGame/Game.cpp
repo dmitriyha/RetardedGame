@@ -77,8 +77,7 @@ void Game::run(){
 			}
 
 
-			map.render(p.getPlayerLocation());
-
+			p.setRelativeCoord(map.render(p.getPlayerLocation()));
 
 			//e->gravity();//gravity of the enemy
 

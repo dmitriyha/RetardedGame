@@ -7,12 +7,15 @@ Character::Character(){
 void Character::render(){
 	relativeLoc = worldLoc;
 
-	if (relativeLoc.x >= 2000){
-		int x = relativeLoc.x;
+	if (worldLoc.x >= 2000 && location.x < 2){
+		int x = worldLoc.x;
 		x = x - (((x/1000)*1000)-1000);
 		relativeLoc.x = x;
-
-		cout << x << endl;
+	}
+	else if(location.x==2){
+		int x = worldLoc.x;
+		relativeLoc.x = x-((x / 1000) * 1000)+2000;
+		cout << relativeLoc.x << endl;
 	}
 
 	SDL_RenderCopy(texture->getRenderer(), texture->getTexture(), &spriteSheetLoc, &relativeLoc);//render the sprite to the canvas

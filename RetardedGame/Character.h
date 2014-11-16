@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "Texture.h"
+#include "CoordinateStruct.h"
 using namespace std;
 
 class Character
@@ -28,6 +29,7 @@ class Character
 		SDL_Rect worldLoc;//where the character is in the world
 		SDL_Rect relativeLoc;
 		const int movementSpeed = 2;
+		CoordinateStruct location{ 0, 0 };
 	private:
 };
 
