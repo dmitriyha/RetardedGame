@@ -42,9 +42,14 @@ void Map::render(SDL_Rect playerLoc){
 	if (xLoc < 1){
 		firstTexture = xLoc;
 	}
-	else if (xLoc > 0){
+	else if (xLoc > 0 && xLoc < (texture.size() - 1)){
 		firstTexture = xLoc-1;
 	}
+	else{
+		firstTexture = texture.size() - 3;
+	}
+
+	cout << firstTexture << endl;
 
 	for (int i = 0; i < 3; i++){
 		SDL_Rect size = {((i) * 1000), 0, 1000, 1000 };

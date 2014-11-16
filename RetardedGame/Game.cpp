@@ -22,6 +22,7 @@ Game::Game(){
 	
 	p.setTexturePointer(box);//create a pointer to the spritesheet
 
+
 	//Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
 }
 
@@ -63,7 +64,7 @@ void Game::run(){
 
 			if ((mapArray.map[(p.getPlayerLocation().y + 50) / 50][(p.getPlayerLocation().x + 50) / 50] != 0))
 			{
-				cout << " OUCH!!!";
+				
 				p.move("bottom");
 				//Lock movement here
 			}
@@ -85,8 +86,6 @@ void Game::run(){
 			render();
 
 			p.collisionHandler(collision);
-
-			
 
 			//cout <<p.getPlayerLocation().y << "\n" ;
 
@@ -114,7 +113,7 @@ void Game::render(){
 	p.collisionHandler(collision);
 
 	p.render();//render player to canvas
-	win.renderFrame(p.getPlayerLocation());//render canvas to screen
+	win.renderFrame(p.getRelativePlayerLocation());//render canvas to screen
 }
 
 void Game::setTextures(){
@@ -137,6 +136,8 @@ void Game::setTextures(){
 	map4->setRenderer(win.getRenderer());
 	map4->makeTexture(mapString4);
 	mapTextures.push_back(map4);
+
+	//p.setTexturePointer(mapTextures);
 }
 
 Game::~Game(){
