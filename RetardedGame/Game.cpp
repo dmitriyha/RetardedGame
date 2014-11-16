@@ -5,6 +5,7 @@
 Game::Game(){
 	box = new Texture(); //create a new texture. This will be the universal sprite sheet texture
 	mapTexture = new Texture(); //create a new texture. This will be the universal sprite sheet texture
+	player = new Texture();
 
 	setTextures();
 
@@ -118,6 +119,9 @@ void Game::render(){
 }
 
 void Game::setTextures(){
+	player->setRenderer(win.getRenderer());
+	player->makeTexture();
+
 	box->setRenderer(win.getRenderer());
 	box->makeTexture(characterPictures);
 	mapTexture->setRenderer(win.getRenderer());

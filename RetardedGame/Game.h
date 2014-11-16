@@ -15,6 +15,7 @@
 using namespace std;
 
 class Game{
+	const string playerPicture "Images\\";
 	const string characterPictures = "Images\\lol.png";
 	const string mapPicture = "Images\\BasicMap.png";
 
@@ -24,6 +25,7 @@ class Game{
 	Player p;//create a player object
 	vector<Enemy*> enemies;
 	Texture* box;
+	Texture* player;
 	Texture* mapTexture;
 
 	bool collision;
