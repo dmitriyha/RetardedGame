@@ -40,6 +40,7 @@ class Player : public Character
 
 		int animationTimer = 0;
 		int frame = 0;
+		int frame_walk = 18;
 
 		bool hit = false;//if the player is hit, makes hime flash
 
@@ -51,6 +52,8 @@ class Player : public Character
 		SDL_Rect duckStart;
 		SDL_Rect duck;
 		SDL_Rect duckBlink;
+
+		SDL_Rect walk;
 		
 };
 

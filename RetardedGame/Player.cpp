@@ -10,21 +10,33 @@ Player::Player(){
 	duck = { 788, 0, 68, 58 };
 	duckBlink = { 856, 0, 68, 58 };
 
+	
+
 	for (int i = 0; i < 18; i++){
 		SDL_Rect rect = { spriteWidth * i, 0, spriteWidth, spriteHeight };
 		rectList.push_back(rect);
 	}
 
-
+	for (int z = 924; z < 1082; z = z + 40)
+	{
+		walk = { z, 0, 40, 58 };
+		rectList.push_back(walk);
+	}
 }
 
 void Player::render(){
 	animationTimer += currentTickCount - previousTickCount;
 	if (animationTimer > 150){
 		frame++;
+		frame_walk++;
 
 		if (frame == 18) {
 			frame = 0;
+		}
+
+		if (frame_walk == 22)
+		{
+			frame_walk = 18;
 		}
 
 		if (ducking){
@@ -45,6 +57,16 @@ void Player::render(){
 			spriteSheetLoc = duckStart;
 			wasDucking = false;
 			animationTimer = 0;
+		}
+
+		else if ((moving)&&(movement!="jump"))
+		{
+		
+			spriteSheetLoc = rectList.at(frame_walk);
+			//animationTimer = 130;
+			animationTimer = 0;
+				
+			
 		}
 
 		else{
