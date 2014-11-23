@@ -20,6 +20,7 @@ Player::Player(){
 
 void Player::render(){
 	animationTimer += currentTickCount - previousTickCount;
+	//cout << animationTimer << endl;
 	if (animationTimer > 150){
 		frame++;
 
@@ -28,13 +29,14 @@ void Player::render(){
 		}
 
 		if (ducking){
+			
 			if (animationTimer>150 && animationTimer< 300){
 				spriteSheetLoc = duckStart;
 			}
 			else if (animationTimer >= 300 && animationTimer < 2300){
 				spriteSheetLoc = duck;
 			}
-			else if (animationTimer > 2450){
+			else if (animationTimer >= 2300 && animationTimer<2450){
 				spriteSheetLoc = duckBlink;
 			}
 			else {
@@ -50,6 +52,7 @@ void Player::render(){
 		else{
 			spriteSheetLoc = rectList.at(frame);
 			animationTimer = 0;
+			cout << animationTimer << endl;
 		}
 	}
 	Character::render();
@@ -77,7 +80,7 @@ void Player::eventHandler(SDL_Event event){
 			case SDLK_DOWN:
 				moving = false;
 				ducking=true;
-				animationTimer = 0;
+				//animationTimer = 0;
 				break;
 
 			case SDLK_a:
