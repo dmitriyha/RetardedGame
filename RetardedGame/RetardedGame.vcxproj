@@ -143,6 +143,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapParser.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Shoes.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -161,11 +162,15 @@
     <ClInclude Include="Goggles.h" />
     <ClInclude Include="Gun.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="Layer.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MapHeader.h" />
+    <ClInclude Include="MapParser.h" />
     <ClInclude Include="MapStructure.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Shoes.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TileSet.h" />
     <ClInclude Include="TopHat.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="Window.h" />

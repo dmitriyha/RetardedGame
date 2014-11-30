@@ -84,6 +84,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MapParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gadget.h">
@@ -140,6 +143,18 @@
     <ClInclude Include="CoordinateStruct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TileSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\img.png">
@@ -155,7 +170,7 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\map2.png">
-		<Filter>Resource Files</Filter>
+      <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\tail_sprite2x.png">
       <Filter>Resource Files</Filter>
