@@ -9,32 +9,47 @@ Player::Player(){
 	duckStart = { 720, 0, 68, 58 };
 	duck = { 788, 0, 68, 58 };
 	duckBlink = { 856, 0, 68, 58 };
+	jump = { 1084, 0, 40, 58 };
+
+	
 
 	for (int i = 0; i < 18; i++){
 		SDL_Rect rect = { spriteWidth * i, 0, spriteWidth, spriteHeight };
 		rectList.push_back(rect);
 	}
 
-
+	for (int z = 924; z < 1082; z = z + 40)
+	{
+		walk = { z, 0, 40, 58 };
+		rectList.push_back(walk);
+	}
 }
 
 void Player::render(){
 	animationTimer += currentTickCount - previousTickCount;
+	//cout << animationTimer << endl;
 	if (animationTimer > 150){
 		frame++;
+		frame_walk++;
 
 		if (frame == 18) {
 			frame = 0;
 		}
 
+		if (frame_walk == 22)
+		{
+			frame_walk = 18;
+		}
+
 		if (ducking){
+			
 			if (animationTimer>150 && animationTimer< 300){
 				spriteSheetLoc = duckStart;
 			}
 			else if (animationTimer >= 300 && animationTimer < 2300){
 				spriteSheetLoc = duck;
 			}
-			else if (animationTimer > 2450){
+			else if (animationTimer >= 2300 && animationTimer<2450){
 				spriteSheetLoc = duckBlink;
 			}
 			else {
@@ -47,9 +62,26 @@ void Player::render(){
 			animationTimer = 0;
 		}
 
+		else if ((moving) && (movement != "jump") && (gravityVelocity == 0))
+		{
+		
+			spriteSheetLoc = rectList.at(frame_walk);
+			//animationTimer = 130;
+			animationTimer = 0;
+				
+			
+		}
+
+		else if ((movement == "jump") || (gravityVelocity!=0))
+		{
+			cout << "Gravity" << gravityVelocity << endl;
+			spriteSheetLoc = jump;
+		}
+
 		else{
 			spriteSheetLoc = rectList.at(frame);
 			animationTimer = 0;
+			cout << animationTimer << endl;
 		}
 	}
 	Character::render();
@@ -81,7 +113,7 @@ void Player::eventHandler(SDL_Event event){
 			case SDLK_DOWN:
 				moving = false;
 				ducking=true;
-				animationTimer = 0;
+				//animationTimer = 0;
 				break;
 
 			case SDLK_a:
