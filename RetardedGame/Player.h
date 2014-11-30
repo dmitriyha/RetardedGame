@@ -54,6 +54,9 @@ class Player : public Character
 		SDL_Rect duckBlink;
 
 		SDL_Rect walk;
+
+		SDL_Rect jump;
+
 		
 };
 

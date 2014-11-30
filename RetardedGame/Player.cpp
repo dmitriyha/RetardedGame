@@ -9,6 +9,7 @@ Player::Player(){
 	duckStart = { 720, 0, 68, 58 };
 	duck = { 788, 0, 68, 58 };
 	duckBlink = { 856, 0, 68, 58 };
+	jump = { 1084, 0, 40, 58 };
 
 	
 
@@ -61,7 +62,7 @@ void Player::render(){
 			animationTimer = 0;
 		}
 
-		else if ((moving)&&(movement!="jump"))
+		else if ((moving) && (movement != "jump") && (gravityVelocity == 0))
 		{
 		
 			spriteSheetLoc = rectList.at(frame_walk);
@@ -69,6 +70,12 @@ void Player::render(){
 			animationTimer = 0;
 				
 			
+		}
+
+		else if ((movement == "jump") || (gravityVelocity!=0))
+		{
+			cout << "Gravity" << gravityVelocity << endl;
+			spriteSheetLoc = jump;
 		}
 
 		else{
