@@ -175,5 +175,13 @@
     <Image Include="Images\tail_sprite2x.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Images\basic2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Maps\BasicMap.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

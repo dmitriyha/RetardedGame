@@ -17,13 +17,6 @@ void MapParser::readFile(string name){
 	else { cout << "error reading file " << name << endl; }
 
 	
-	MapHeader map = getMapHeader();
-	vector<TileSet> t = getTilesetData();
-
-	//string s= findTag("[layer]", 3);
-
-	vector<Layer>l=getLayers();
-	cout << l.at(2).layerData.at(18).at(8) << endl;
 }
 
 MapHeader MapParser::getMapHeader(){
@@ -60,7 +53,7 @@ vector<TileSet> MapParser::getTilesetData(){
 		next = dataString.find(",", prev + 1)+1;
 		length = next - prev - 1;
 
-		tilesetData.tileSet = dataString.substr(prev, length);
+		tilesetData.tileSet = "Images\\"+dataString.substr(prev, length);
 
 		prev = next ;
 		next = dataString.find(",", prev ) + 1;

@@ -152,9 +152,8 @@ bool Player::isMoving(){//the moving flag
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
 
-
-	Map map;
-	MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
+	//Map map; 
+	//vector<vector<int>> mapArray = map.getMap();//the part that i just deleted comes from here
 
 
 	int positionTiles[2];
@@ -169,22 +168,26 @@ void Player::move(string movement){//the move method
 
 		if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
 		
+			
 
+			if ((mapArray->at(positionTiles[1]).at(positionTiles[0]) != 0) && (mapArray->at((worldLoc.y + 50) / 50).at(positionTiles[0]) != 0))
+			{
+				worldLoc.x = worldLoc.x;
+				//worldLoc.y = (worldLoc.y / 50) * 50;
+				cout << mapArray->at(positionTiles[1]).at(positionTiles[0]) << endl;
 
-		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + 50)/ 50][positionTiles[0]] != 0))
-		{
-			worldLoc.x = worldLoc.x;
-			//worldLoc.y = (worldLoc.y / 50) * 50;
-
-		}
-		else if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
-		{
-			worldLoc.x = worldLoc.x;
-		}
+			}
+			else if (mapArray->at(positionTiles[1]).at(positionTiles[0]) != 0)
+			{
+				worldLoc.x = worldLoc.x;
+				cout << "here2" << endl;
+			}
 
 		
-		if(mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
-			worldLoc.x = worldLoc.x + 2;
+			if (mapArray->at(positionTiles[1]).at(positionTiles[0]) == 0){
+				worldLoc.x = worldLoc.x + 2;
+				cout << "here3" << endl;
+			}
 		}
 
 	}
@@ -199,7 +202,7 @@ void Player::move(string movement){//the move method
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = worldLoc.y / 50;
 
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		if (mapArray->at(positionTiles[1]).at(positionTiles[0]) == 0)
 		{
 			worldLoc.x = worldLoc.x - 2;
 		}
@@ -244,9 +247,9 @@ void Player::move(string movement){//the move method
 		int top = worldLoc.y / 50;
 		int bottom = (worldLoc.y + worldLoc.h) / 50;
 
-		if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){
+		if (((mapArray->at(top).at(right) != 0) || (mapArray->at(top).at(left) != 0))){
 
-			if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
+			if ((&mapArray[top + 1][right - 1] != 0) || (&mapArray[top + 1][left - 1] != 0))
 			{
 				gravityVelocity = 0;
 			}

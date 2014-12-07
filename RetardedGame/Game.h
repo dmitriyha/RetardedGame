@@ -23,6 +23,8 @@ class Game{
 	const string mapString4 = "Images\\map4.png";
 	vector<Texture*> mapTextures;
 
+	const vector<vector<int>>* mapData;
+
 	SDL_Event event;//create an even to poll
 	Window win;//create a window
 	Map map;

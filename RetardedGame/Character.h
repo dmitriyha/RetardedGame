@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <string>
 #include <iostream>
+#include <vector>
 #include "Texture.h"
 #include "CoordinateStruct.h"
 using namespace std;
@@ -13,11 +14,13 @@ class Character
 		Character();
 		virtual void render();
 		void setTexturePointer(Texture* _texture);
+		void setMapPointer(const vector<vector<int>>* _mapArray);
 		void gravity();
 		virtual void move();
 		virtual void collisionHandler(bool collision);
 		virtual ~Character();
 	protected:
+		const vector<vector<int>>* mapArray;
 		string name;//name of the character
 		int hearts;//amount of hears
 		float gravityVelocity = 0;
