@@ -16,6 +16,9 @@ Game::Game(){
 
 	win.setCanvasSize(mapTextures);
 
+	mapData = &map.getMap();
+	
+	map = Map(win.getRenderer());
 	map.setTexturePointer(mapTextures);
 
 	
@@ -24,7 +27,7 @@ Game::Game(){
 
 	
 	p.setTexturePointer(player);//create a pointer to the spritesheet
-
+	p.setMapPointer(mapData);
 
 	//Enemy* e = EnemyFactory::create("enemy", box); //the factory method example
 }
@@ -63,17 +66,17 @@ void Game::run(){
 			//Collision detection
 
 
-			MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
+			vector<vector<int>> mapArray = map.getMap();//the part that i just deleted comes from here
 
 			SDL_Rect playerSize = p.getPlayerLocation();
 
-			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray.map[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
+			if ((mapArray[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
 			{
 				//cout << " OUCH!!! FLOOR";
 				p.move("bottom");
 				//Lock movement here
 			}
-			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
+			else if ((mapArray[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
 				p.move("top");
 				//cout << " OUCH!!! ROOF";
 			}
@@ -153,6 +156,7 @@ Game::~Game(){
 	delete box;
 	delete map1;
 	delete map2;
+	//delete mapData;
 	for (int i = 0; enemies.size() > i; i++){
 		delete enemies.at(i);
 	}

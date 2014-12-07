@@ -29,6 +29,10 @@ void Character::setTexturePointer(Texture* _texture){
 	texture = _texture;//set the texture pointer
 }
 
+void Character::setMapPointer(const vector<vector<int>>* _mapArray){
+	mapArray = _mapArray;
+}
+
 void Character::gravity(){
 	
 	gravityVelocity = gravityVelocity + gravityConstant;

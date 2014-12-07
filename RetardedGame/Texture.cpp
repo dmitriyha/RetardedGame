@@ -10,16 +10,17 @@ Texture::Texture(){
 
 void Texture::makeTexture(string path){//makes a texture from the picture
 	free();
-	SDL_Surface* loadedSurface = IMG_Load( path.c_str() );
+	loadedSurface = IMG_Load( path.c_str() );
 	if( loadedSurface == NULL ){
 		cout<<"Unable to load image "<< path.c_str()<<"  SDL_image Error: " << IMG_GetError() <<endl;
 	}
 	else{
 		//Color key image
-		SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 128, 128, 128 ) );
+		SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 128, 128, 128) );
 
 		//Create texture from surface pixels
         texture = SDL_CreateTextureFromSurface( renderer, loadedSurface );
+		SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
 		if( texture == NULL ){
 			cout<<"Unable to create texture from "<<path.c_str()<<" SDL Error: "<< SDL_GetError() <<endl;
 		}
@@ -34,6 +35,8 @@ void Texture::makeTexture(string path){//makes a texture from the picture
 	}
 }
 
+
+
 void Texture::makeBlankTexture(int _width, int _height){//makes a canvas
 	free();
 	//Create uninitialized texture 
@@ -45,6 +48,21 @@ void Texture::makeBlankTexture(int _width, int _height){//makes a canvas
 		width = _width; 
 		height = _height;
 	} 
+}
+
+void Texture::makeSurface(string path){
+	free();
+	loadedSurface = IMG_Load(path.c_str());
+	if (loadedSurface == NULL){
+		cout << "Unable to load image " << path.c_str() << "  SDL_image Error: " << IMG_GetError() << endl;
+	}
+}
+
+void Texture::makeBlankSurface(int _width, int _height){
+	loadedSurface = SDL_CreateRGBSurface(0, _width, _height, 32, 0x0, 0x0, 0x0, 0xff);
+	if (loadedSurface == NULL){
+		cout << "Unable to create blank surface SDL Error: " << SDL_GetError() << endl;
+	}
 }
 
 SDL_Rect Texture::getSize(){
@@ -60,6 +78,40 @@ SDL_Texture* Texture::getTexture(){//gets the texture object
 	}
 	else{
 		return texture;
+	}
+}
+
+void Texture::convertSurfaceToTexture(){
+	if (loadedSurface == NULL){
+		cout << "Unable to find surface SDL Error: " << SDL_GetError() << endl;
+	}
+	else{
+		//Color key image
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 128, 128, 128));
+
+		//Create texture from surface pixels
+		texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+		SDL_SetTextureBlendMode(texture, SDL_BLENDMODE_BLEND);
+		if (texture == NULL){
+			cout << "Unable to create texture from surface SDL Error: " << SDL_GetError() << endl;
+		}
+		else{
+			//Get image dimensions
+			width = loadedSurface->w;
+			height = loadedSurface->h;
+		}
+
+		//Get rid of old loaded surface
+		SDL_FreeSurface(loadedSurface);
+	}
+}
+
+SDL_Surface* Texture::getSurface(){//gets the texture object
+	if (loadedSurface== NULL) {
+		return NULL;
+	}
+	else{
+		return loadedSurface;
 	}
 }
 
