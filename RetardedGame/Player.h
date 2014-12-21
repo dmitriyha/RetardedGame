@@ -19,14 +19,14 @@ class Player : public Character
 		SDL_Rect getRelativePlayerLocation();
 		void eventHandler(SDL_Event event);
 		bool isMoving();
+		bool moving;
 		string movement;
 		void move(string direction);
 		void collisionHandler(bool collision);
 		void setRelativeCoord(CoordinateStruct coord){ location = coord; }
 		~Player();
 	protected:
-	private:
-		bool moving;
+	private:		
 		int lives=2;//amount of lives (not hears)
 		int continues;//amount of continues (usually like... 3 or 2?)
 		int cookies;//amount of collected cookies

@@ -67,13 +67,17 @@ void Game::run(){
 
 			SDL_Rect playerSize = p.getPlayerLocation();
 
-			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray.map[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
+			
+			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) // lower right border of the player
+				|| (mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + 10) / 50] != 0)) // lower left border of the player
 			{
+				
 				//cout << " OUCH!!! FLOOR";
 				p.move("bottom");
 				//Lock movement here
 			}
-			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
+			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)) //&&(p.moving==false))
+			{
 				p.move("top");
 				//cout << " OUCH!!! ROOF";
 			}
@@ -97,7 +101,7 @@ void Game::run(){
 			//cout <<p.getPlayerLocation().y << "\n" ;
 
 
-			//cout << p.getPlayerLocation().x << p.getPlayerLocation().y << endl;
+			cout << p.getPlayerLocation().x << " " << p.getPlayerLocation().y << endl;
 
 			string fpsText = "The average FPS is: " + to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(), fpsText.c_str());

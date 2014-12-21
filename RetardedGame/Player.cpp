@@ -63,12 +63,10 @@ void Player::render(){
 		}
 
 		else if ((moving) && (movement != "jump") && (gravityVelocity == 0))
-		{
-		
+		{		
 			spriteSheetLoc = rectList.at(frame_walk);
 			//animationTimer = 130;
-			animationTimer = 0;
-				
+			animationTimer = 0;				
 			
 		}
 
@@ -162,30 +160,35 @@ void Player::move(string movement){//the move method
 	if (movement == "right")
 	{
 		
-		positionTiles[0] = (worldLoc.x + 50) / 50; //Adding 50 pixels, because player is 50px wide. HARDCODED
-		positionTiles[1] = worldLoc.y / 50;
+		positionTiles[0] = (worldLoc.x + spriteWidth) / 50; //adding 40 pixels to the right - players width
+		positionTiles[1] = (worldLoc.y + 50) / 50;
 
 		cout << positionTiles[1] << "\n";
+		/*
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		{
+			worldLoc.x = worldLoc.x; // Stop the character when a wall appears
+		}
+		*/
 
-		if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		{
+			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
+		}
+
+		//if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
 		
 
-
-		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + 50)/ 50][positionTiles[0]] != 0))
+		/*
+		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + spriteWidth) / 50][positionTiles[0]] != 0))
 		{
 			worldLoc.x = worldLoc.x;
 			//worldLoc.y = (worldLoc.y / 50) * 50;
 
 		}
-		else if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
-		{
-			worldLoc.x = worldLoc.x;
-		}
-
+		*/
 		
-		if(mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
-			worldLoc.x = worldLoc.x + 2;
-		}
+		//}
 
 	}
 
@@ -197,7 +200,7 @@ void Player::move(string movement){//the move method
 		//cout << worldLoc.y;
 
 		positionTiles[0] = worldLoc.x / 50;
-		positionTiles[1] = worldLoc.y / 50;
+		positionTiles[1] = (worldLoc.y + 50) / 50;
 
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
@@ -244,11 +247,12 @@ void Player::move(string movement){//the move method
 		int top = worldLoc.y / 50;
 		int bottom = (worldLoc.y + worldLoc.h) / 50;
 
-		if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){
+		//if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){//Not sure what this one does
 
+			/*
 			if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
 			{
-				gravityVelocity = 0;
+				
 			}
 			
 			else
@@ -256,14 +260,15 @@ void Player::move(string movement){//the move method
 				gravityVelocity = 4;
 			}
 
-
-		}
-		else
-		{
+			*/
+		//	gravityVelocity = 0;
+		//}
+		//else
+		//{
 			worldLoc.y = (((worldLoc.y+50) / 50) * 50) - (worldLoc.h-50);
 			worldLoc.x = worldLoc.x;
 			gravityVelocity = 0;
-		}
+		//}
 				
 	}
 	else if (movement == "top") 
