@@ -93,20 +93,22 @@ vector<Layer> MapParser::getLayers(){
 
 	for (int i = 0; i < 4; i++){
 		string layerData = findTag("[layer]", i);
-		vector<string> layerProperties = getProperties(layerData);
-		returnable.push_back(Layer());
-		returnable.at(i).type=layerProperties.at(0).substr(type.length(), (layerProperties.at(0).length() - type.length()));
+		if (layerData != "not found"){
+			vector<string> layerProperties = getProperties(layerData);
+			returnable.push_back(Layer());
+			returnable.at(i).type = layerProperties.at(0).substr(type.length(), (layerProperties.at(0).length() - type.length()));
 
-		for (int j = 2; j < layerProperties.size(); j++){
-			vector<int> row;
-			stringstream s(layerProperties.at(j));
-			string numberString = "";
-			
-			while (getline(s, numberString, ',')){
-				row.push_back(stoi(numberString));
+			for (int j = 2; j < layerProperties.size(); j++){
+				vector<int> row;
+				stringstream s(layerProperties.at(j));
+				string numberString = "";
+
+				while (getline(s, numberString, ',')){
+					row.push_back(stoi(numberString));
+				}
+
+				returnable.at(i).layerData.push_back(row);
 			}
-			
-			returnable.at(i).layerData.push_back(row);
 		}
 	}
 
@@ -115,11 +117,17 @@ vector<Layer> MapParser::getLayers(){
 
 string MapParser::findTag(string tag, int tagNum){
 	string substr;
-	size_t location = 0, end = 0, length = 0;
+	size_t location = 0, end = 0, length = 0, found = 0;
 	while (tagNum >= 0){
-		location = fileString.find(tag,location) + (tag.size() + 1);
-		end = fileString.find("\n\n", location + 4) +1;
-		length = end - location;
+		found = fileString.find(tag, location);
+		if (found != string::npos){
+			location = found + (tag.size() + 1);
+			end = fileString.find("\n\n", location + 4) + 1;
+			length = end - location;
+		}
+		else{
+			return "not found";
+		}
 
 		tagNum--;
 	}
@@ -132,7 +140,6 @@ string MapParser::findTag(string tag, int tagNum){
 vector<string> MapParser::getProperties(string tagBlock){
 	int prev = 0, next = 0, length = 0;
 
-	
 
 	vector<string> data;
 

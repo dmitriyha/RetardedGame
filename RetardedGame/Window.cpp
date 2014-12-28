@@ -52,6 +52,7 @@ void Window::setCanvasSize(vector<Texture*> texture){
 	if (success){
 		canvasSize=texture.at(0)->getSize();
 		canvasSize.w *= 3;
+		canvasSize.h *= 3;
 		canvas.setRenderer(renderer);
 		canvas.makeBlankTexture(canvasSize.w, canvasSize.h);
 	}

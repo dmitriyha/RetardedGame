@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="basic2" tilewidth="50" tileheight="50">
+  <image source="basic2.png" trans="808080" width="400" height="501"/>
+ </tileset>
+ <layer name="Tile Layer 1 - CHARACTER" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKwzAQAEGj/z86pAgJxq61vsyAQKXEoiu0jq91sNu62bOHHi16tOjRokeLHi16tOjRokeLHi16tJR7rIs13blHbZ3POr1P+X3cmdri7Yk9JtOjRY8WPVr0aNGjRY8WPVr0aNGjRY8WPVrq/7v/8Kf7a/r9nkaPlt2zxwwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+Xl2xAYs=
+  </data>
+ </layer>
+</map>
