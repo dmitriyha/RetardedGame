@@ -5,11 +5,13 @@ Map::Map(){}
 Map::Map(SDL_Renderer* render)
 {
 	MapParser parser;
-	parser.readFile("Maps\\BasicMap.txt");
+	parser.readFile("Maps\\map.txt");
 	header = parser.getMapHeader();
 	tileSet = parser.getTilesetData();
 	layers = parser.getLayers();
 	//cout << layers.at(0).layerData.at(0).at(0) << endl;
+
+	
 
 	for (int i = 0; i < layers.size(); i++){
 		if (layers.at(i).type.find("CHARACTER") != string::npos){ //checks to see if the specified substring was found
@@ -17,12 +19,29 @@ Map::Map(SDL_Renderer* render)
 		}
 	}
 
-	cout << map[1][0] << endl;
-
 	int texturesX = (header.width * header.tileWidth) / 1000;
 	int texturesY = (header.height * header.tileHeight) / 1000;
 
+	int tilesPerTexX = header.width / texturesX;
+	int tilesPerTexY = header.height / texturesY;
+
+
+	
+
 	texture.reserve(texturesY);
+	for (int i = 0; i < texture.capacity(); i++){
+		vector<Texture*> v;
+		v.reserve(texturesX);
+		for (int j = 0; j < texture.capacity(); j++){
+			
+			Texture *tex = new Texture();
+			tex->setRenderer(render);
+			tex->makeBlankSurface(1000, 1000);
+			v.push_back(tex);
+		}
+		texture.push_back(v);
+	}
+
 
 	Texture tiletex;
 	tiletex.setRenderer(render);
@@ -30,56 +49,78 @@ Map::Map(SDL_Renderer* render)
 
 	int x = 0, y = 0;
 
-	for (int i = 0; i < texture.capacity(); i++){
-		vector<Texture*> v;
-		v.reserve(texturesX);
-		for (int j = 0; j < v.capacity(); j++){
-			Texture *tex = new Texture();
-			tex->setRenderer(render);
-			tex->makeBlankSurface(1000, 1000);
+	for (int k = 0; k < header.height; k++){
+		bool entry = true;
+		for (int l = 0; l < header.width; l++){
+			SDL_Rect worldLoc = { ((l % tilesPerTexX) * header.tileWidth), ((k % tilesPerTexY) * header.tileHeight), header.tileWidth, header.tileHeight };
+			SDL_Rect tileLoc = { 0, 0, header.tileWidth, header.tileHeight };
 
-			/*SDL_SetRenderTarget(render, tex->getTexture());
+			
+			if (map[k][l] == 1 || map[k][l] == 0){
+				tileLoc.x = 0;
+				tileLoc.y = 0;
 
-			SDL_SetRenderDrawColor(render, 128, 128, 128, 0);
-			SDL_RenderClear(render);*/
+				
 
-			for (int k = 0; k < (header.height); k++){
-				for (int l = 0; l < (header.width/texturesX); l++){
-					SDL_Rect worldLoc = { (l * header.tileWidth), (k * header.tileHeight), header.tileWidth, header.tileHeight };
-					SDL_Rect tileLoc = { 0, 0, header.tileWidth, header.tileHeight };
-					
-					if (map[k][x + l] == 1 || map[k][x + l] == 0){
-						tileLoc.x = 0;
-						tileLoc.y = 0;
-					}
-					else{
-						int tile = map[k][l + x] - 1;
-						int row = map[k][l + x] / 8;
-
-						if (tile > row){
-							tile = tile - (row * 8);
-						}
-
-						cout << row << endl;
-
-						tileLoc.x = tile * header.tileWidth;
-						tileLoc.y = row * header.tileHeight;
-					}
-
-					SDL_BlitSurface(tiletex.getSurface(), &tileLoc,tex->getSurface(), &worldLoc);
-
-						
-				}
 			}
-			x += header.width / texturesX;
-			y++;
+			else{
 
-			tex->convertSurfaceToTexture();
+				
 
-			v.push_back(tex);
+				int tile = map[k][l] - 1;
+				int row = map[k][l] / 8;
+
+				if (tile > row){
+					tile = tile - (row * 8);
+				}
+
+				
+
+				//cout << row << endl;
+
+				tileLoc.x = tile * header.tileWidth;
+				tileLoc.y = row * header.tileHeight;
+
+				if (k == 1 && l == 3){
+
+					cout << worldLoc.x << " " << worldLoc.y << " " << map[k][l] << endl;
+
+				}
+
+			}
+			SDL_BlitSurface(tiletex.getSurface(), &tileLoc, texture.at(y).at(x)->getSurface(), &worldLoc);
+
+			if ((l % tilesPerTexX) == tilesPerTexX - 1){
+				x++;
+				if (x == texture.at(y).capacity()){
+					x = 0;
+				}
+
+			}
+
+			if (((k % tilesPerTexY) == tilesPerTexY - 1) && entry ){
+				y++;
+				if (y == texture.capacity()){
+					y = 0;
+				}
+				entry = false;
+			}
+
+			//cout << k<<" "<<l<<" "<<x<<" "<<y<<endl;
+			//x++;
 		}
-		texture.push_back(v);
+		//cout << endl;
+
+		//x = tilesPerTexX * (j);
 	}
+		
+
+	for (int i = 0; i < texture.capacity(); i++){
+		for (int j = 0; j < texture.at(i).capacity(); j++){
+			texture.at(i).at(j)->convertSurfaceToTexture();
+		}
+	}
+
 
 	SDL_SetRenderTarget(render, NULL);
 
@@ -100,18 +141,7 @@ CoordinateStruct Map::render(SDL_Rect playerLoc){
 
 	CoordinateStruct relativeCoord{ 0, 0 };
 
-	int firstTextureX=0;
-	if (xLoc < 1){
-		firstTextureX = xLoc;
-	}
-	else if (xLoc > 0 && xLoc < (texture.at(0).size() - 1)){
-		relativeCoord.x = 1;
-		firstTextureX = xLoc-1;
-	}
-	else if (xLoc >= texture.at(0).size()-1){
-		relativeCoord.x = 2;
-		firstTextureX = texture.at(0).size() - 3;
-	}
+	
 
 	int firstTextureY = 0;
 	if (yLoc < 1){
@@ -126,11 +156,23 @@ CoordinateStruct Map::render(SDL_Rect playerLoc){
 		firstTextureY = texture.size() - 3;
 	}
 
+	int firstTextureX = 0;
+	if (xLoc < 1){
+		firstTextureX = xLoc;
+	}
+	else if (xLoc > 0 && xLoc < (texture.at(firstTextureY).size() - 1)){
+		relativeCoord.x = 1;
+		firstTextureX = xLoc - 1;
+	}
+	else if (xLoc >= texture.at(firstTextureY).size() - 1){
+		relativeCoord.x = 2;
+		firstTextureX = texture.at(firstTextureY).size() - 3;
+	}
 
-	for (int i = 0; i < 3 && ((i + texture.size()) <= texture.size()); i++){
+	for (int i = 0; i < 3; i++){
 		for (int j = 0; j < 3; j++){
 			SDL_Rect size = { ((j)* 1000), ((i)* 1000), 1000, 1000 };
-
+			//cout << i << " " << j << endl;
 			SDL_RenderCopy(texture.at(firstTextureY + i).at(firstTextureX + j)->getRenderer(), texture.at(firstTextureY + i).at(firstTextureX + j)->getTexture(), NULL, &size); //render the sprite to the canvas
 		}
 	}
