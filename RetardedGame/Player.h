@@ -21,12 +21,14 @@ class Player : public Character
 		bool isMoving();
 		bool moving;
 		string movement;
-		void move(string direction);
+		void move(string movement);
 		void collisionHandler(bool collision);
 		void setRelativeCoord(CoordinateStruct coord){ location = coord; }
 		~Player();
 	protected:
-	private:		
+	private:
+		void moveLeft(MapStructure mapArray);
+		void moveRight(MapStructure mapArray);
 		int lives=2;//amount of lives (not hears)
 		int continues;//amount of continues (usually like... 3 or 2?)
 		int cookies;//amount of collected cookies
@@ -49,6 +51,8 @@ class Player : public Character
 
 		bool ducking = false;
 		bool wasDucking = false;
+
+		bool readyToJump = false;
 
 		vector <SDL_Rect> rectList;
 

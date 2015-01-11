@@ -72,7 +72,7 @@ void Game::run(){
 				|| (mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + 10) / 50] != 0)) // lower left border of the player
 			{
 				
-				//cout << " OUCH!!! FLOOR";
+				//cout << " OUCH!!! FLOOR" << endl;
 				p.move("bottom");
 				//Lock movement here
 			}
@@ -82,7 +82,7 @@ void Game::run(){
 				//cout << " OUCH!!! ROOF";
 			}
 
-
+			
 
 			if (p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);

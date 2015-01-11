@@ -72,14 +72,14 @@ void Player::render(){
 
 		else if ((movement == "jump") || (gravityVelocity!=0))
 		{
-			cout << "Gravity" << gravityVelocity << endl;
+			//cout << "Gravity" << gravityVelocity << endl;
 			spriteSheetLoc = jump;
 		}
 
 		else{
 			spriteSheetLoc = rectList.at(frame);
 			animationTimer = 0;
-			cout << animationTimer << endl;
+			//cout << animationTimer << endl;
 		}
 	}
 	Character::render();
@@ -99,24 +99,34 @@ void Player::eventHandler(SDL_Event event){
 	if(event.type==SDL_KEYDOWN){//when the key is pressed
 		switch(event.key.keysym.sym){
 			case SDLK_RIGHT:
-				moving=true;
-				movement = "right";
+				if (!ducking)
+				{
+					moving = true;
+					movement = "right";
+				}
 				break;
 
 			case SDLK_LEFT:
-				moving = true;
-				movement = "left";
+				if (!ducking)
+				{
+					moving = true;
+					movement = "left";
+				}
 				break;
 
 			case SDLK_DOWN:
 				moving = false;
-				ducking=true;
+				ducking = true;
 				//animationTimer = 0;
 				break;
 
 			case SDLK_a:
-				moving = true;
-				movement = "jump";
+				if (!ducking && readyToJump)
+				{
+					moving = true;
+					movement = "jump";
+					
+				}
 				break;
 
 		}
@@ -125,10 +135,12 @@ void Player::eventHandler(SDL_Event event){
 		switch(event.key.keysym.sym){
 			case SDLK_RIGHT:
 				moving=false;
+				movement = "";
 				break;
 
 			case SDLK_LEFT:
 				moving = false;
+				movement = "";
 				break;
 
 			case SDLK_DOWN:
@@ -137,7 +149,8 @@ void Player::eventHandler(SDL_Event event){
 				break;
 
 			case SDLK_a:
-				moving = false;			
+				//moving = false;
+				movement = "";
 				break;
 		}
 	}
@@ -149,141 +162,162 @@ bool Player::isMoving(){//the moving flag
 
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
-
-
 	Map map;
 	MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
-
-
 	int positionTiles[2];
-
 	if (movement == "right")
 	{
-		
 		positionTiles[0] = (worldLoc.x + spriteWidth) / 50; //adding 40 pixels to the right - players width
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
-
 		cout << positionTiles[1] << "\n";
 		/*
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
 		{
-			worldLoc.x = worldLoc.x; // Stop the character when a wall appears
+		worldLoc.x = worldLoc.x; // Stop the character when a wall appears
 		}
 		*/
-
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
 			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
 		}
-
 		//if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
-		
-
 		/*
 		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + spriteWidth) / 50][positionTiles[0]] != 0))
 		{
-			worldLoc.x = worldLoc.x;
-			//worldLoc.y = (worldLoc.y / 50) * 50;
-
+		worldLoc.x = worldLoc.x;
+		//worldLoc.y = (worldLoc.y / 50) * 50;
 		}
 		*/
-		
 		//}
-
 	}
-
 	else if (movement == "left")
 	{
-		
 		//cout << worldLoc.x;
 		//cout << "\n";
 		//cout << worldLoc.y;
-
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
-
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
 			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
 		}
-
 		//cout << "\n";
 	}
-
-
 	else if (movement == "jump")
 	{
 		//if (collision){
-			collision = false;
-
-
-			//gravityVelocity = -5;
-			positionTiles[0] = worldLoc.x / 50;
-			positionTiles[1] = worldLoc.y / 50;
-
-			//cout << positionTiles[0] << "\n";
-
-			//cout << positionTiles[1] << "\n";
-
-			//if (map[positionTiles[1]][positionTiles[0]] == 0)
-			//{
-				gravityVelocity = -5;
-			//}
-
-			//else
-			//{
-			//	gravityVelocity = 0;
-			//}
-
-			//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
+		collision = false;
+		//gravityVelocity = -5;
+		positionTiles[0] = worldLoc.x / 50;
+		positionTiles[1] = worldLoc.y / 50;
+		//cout << positionTiles[0] << "\n";
+		//cout << positionTiles[1] << "\n";
+		//if (map[positionTiles[1]][positionTiles[0]] == 0)
+		//{
+		if (readyToJump){
+			gravityVelocity = -5;
+			readyToJump = false;
+		}
 		//}
-		
+		//else
+		//{
+		// gravityVelocity = 0;
+		//}
+		//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
+		//}
 	}
-
 	else if (movement == "bottom")
 	{
 		int right = (worldLoc.x + worldLoc.w) / 50;
 		int left = worldLoc.x / 50;
 		int top = worldLoc.y / 50;
 		int bottom = (worldLoc.y + worldLoc.h) / 50;
-
 		//if (((mapArray.map[top][right] != 0) || (mapArray.map[top][left] != 0))){//Not sure what this one does
-
-			/*
-			if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
-			{
-				
-			}
-			
-			else
-			{
-				gravityVelocity = 4;
-			}
-
-			*/
-		//	gravityVelocity = 0;
+		/*
+		if ((mapArray.map[top + 1][right - 1] != 0) || (mapArray.map[top + 1][left - 1] != 0))
+		{
+		}
+		else
+		{
+		gravityVelocity = 4;
+		}
+		*/
+		// gravityVelocity = 0;
 		//}
 		//else
 		//{
-			worldLoc.y = (((worldLoc.y+50) / 50) * 50) - (worldLoc.h-50);
-			worldLoc.x = worldLoc.x;
-			gravityVelocity = 0;
+
+		readyToJump = true;
+
+		worldLoc.y = (((worldLoc.y + 50) / 50) * 50) - (worldLoc.h - 50);
+		worldLoc.x = worldLoc.x;
+		gravityVelocity = 0;
 		//}
-				
 	}
-	else if (movement == "top") 
+	else if (movement == "top")
 	{
 		worldLoc.x = worldLoc.x;
-		worldLoc.y = ((worldLoc.y+50) / 50) * 50;
-
+		worldLoc.y = ((worldLoc.y + 50) / 50) * 50;
 		//if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		//{
-
 		//}
 		gravityVelocity = 0;
 	}
-
 	//worldLoc.y++;
+}
+
+void Player::moveLeft(MapStructure mapArray)
+{
+	//cout << worldLoc.x;
+	//cout << "\n";
+	int positionTiles[2];
+
+	positionTiles[0] = worldLoc.x / 50;
+	positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
+
+	//cout << worldLoc.y << " " << mapArray.map[positionTiles[1]][positionTiles[0]] << endl;
+	cout << gravityVelocity << endl;
+	if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+	{
+		worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
+	}
+
+	//cout << "\n";
+}
+
+void Player::moveRight(MapStructure mapArray)
+{
+	int positionTiles[2];
+	positionTiles[0] = (worldLoc.x + spriteWidth) / 50; //adding 40 pixels to the right - players width
+	positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
+
+	//cout << positionTiles[1] << "\n";
+	/*
+	if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+	{
+	worldLoc.x = worldLoc.x; // Stop the character when a wall appears
+	}
+	*/
+
+	if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+	{
+		worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
+		cout << gravityVelocity << endl;
+	}
+
+	//if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
+
+
+	/*
+	if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + spriteWidth) / 50][positionTiles[0]] != 0))
+	{
+	worldLoc.x = worldLoc.x;
+	//worldLoc.y = (worldLoc.y / 50) * 50;
+
+	}
+	*/
+
+	//}
 }
 
 void Player::collisionHandler(bool collision){
