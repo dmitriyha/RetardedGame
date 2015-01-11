@@ -161,7 +161,7 @@ void Player::move(string movement){//the move method
 	{
 		
 		positionTiles[0] = (worldLoc.x + spriteWidth) / 50; //adding 40 pixels to the right - players width
-		positionTiles[1] = (worldLoc.y + 50) / 50;
+		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
 
 		cout << positionTiles[1] << "\n";
 		/*
@@ -200,11 +200,11 @@ void Player::move(string movement){//the move method
 		//cout << worldLoc.y;
 
 		positionTiles[0] = worldLoc.x / 50;
-		positionTiles[1] = (worldLoc.y + 50) / 50;
+		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
 
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 		{
-			worldLoc.x = worldLoc.x - 2;
+			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
 		}
 
 		//cout << "\n";
