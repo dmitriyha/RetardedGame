@@ -165,7 +165,7 @@ void Player::move(string movement){//the move method
 
 	//Map map; 
 	//vector<vector<int>> mapArray = map.getMap();//the part that i just deleted comes from here
-
+	
 	int positionTiles[2];
 	if (movement == "right")
 	{
@@ -178,14 +178,14 @@ void Player::move(string movement){//the move method
 		worldLoc.x = worldLoc.x; // Stop the character when a wall appears
 		}
 		*/
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		if (mapArray->at(positionTiles[1]).at(positionTiles[0]) == 0)
 		{
 			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
 		}
 		positionTiles[0] = (worldLoc.x + spriteWidth + 2) / 50; //adding 40 pixels to the right - players width
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
 
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		if (mapArray->at(positionTiles[1]).at(positionTiles[0]) != 0)
 		{
 			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
 		}
@@ -208,13 +208,13 @@ void Player::move(string movement){//the move method
 		//cout << worldLoc.y;
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
+		if (mapArray->at(positionTiles[1]).at(positionTiles[0]) == 0)
 		{
 			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
 		}
 		positionTiles[0] = worldLoc.x / 50;
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
-		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		if (mapArray->at(positionTiles[1]).at(positionTiles[0]) != 0)
 		{
 			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
 		}

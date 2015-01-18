@@ -70,8 +70,8 @@ void Game::run(){
 
 			SDL_Rect playerSize = p.getPlayerLocation();
 		
-			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) // lower right border of the player
-				|| (mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + 10) / 50] != 0)) // lower left border of the player
+			if ((mapArray[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) // lower right border of the player
+				|| (mapArray[(playerSize.y + playerSize.h) / 50][(playerSize.x + 10) / 50] != 0)) // lower left border of the player
 			{
 				
 				//cout << " OUCH!!! FLOOR" << endl;
@@ -79,7 +79,7 @@ void Game::run(){
 				//Lock movement here
 			}
 
-			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)) //&&(p.moving==false))
+			else if ((mapArray[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)) //&&(p.moving==false))
 			{
 				p.move("top");
 				//cout << " OUCH!!! ROOF";
