@@ -93,7 +93,7 @@ void Game::run(){
 
 			//e->gravity();//gravity of the enemy
 
-
+			
 			render();
 
 			p.collisionHandler(collision);
@@ -101,7 +101,7 @@ void Game::run(){
 			//cout <<p.getPlayerLocation().y << "\n" ;
 
 
-			cout << p.getPlayerLocation().x << " " << p.getPlayerLocation().y << endl;
+			//cout << p.getPlayerLocation().x << " " << p.getPlayerLocation().y << endl;
 
 			string fpsText = "The average FPS is: " + to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(), fpsText.c_str());

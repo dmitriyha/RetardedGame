@@ -162,14 +162,15 @@ bool Player::isMoving(){//the moving flag
 
 void Player::move(string movement){//the move method
 	//worldLoc.x++;
+	
 	Map map;
 	MapStructure mapArray = map.getMap();//the part that i just deleted comes from here
 	int positionTiles[2];
 	if (movement == "right")
 	{
-		positionTiles[0] = (worldLoc.x + spriteWidth) / 50; //adding 40 pixels to the right - players width
+		positionTiles[0] = (worldLoc.x + spriteWidth + 2) / 50; //adding 40 pixels to the right - players width
 		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
-		cout << positionTiles[1] << "\n";
+		//cout << worldLoc.x + spriteWidth + 2 << "\n";
 		/*
 		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
 		{
@@ -180,6 +181,14 @@ void Player::move(string movement){//the move method
 		{
 			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
 		}
+		positionTiles[0] = (worldLoc.x + spriteWidth + 2) / 50; //adding 40 pixels to the right - players width
+		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide, so it would see 1 tile too much
+
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		{
+			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
+		}
+
 		//if (movement == "right"){//mapArray.map[positionTiles[1]][positionTiles[0]] == 0){
 		/*
 		if ((mapArray.map[positionTiles[1]][positionTiles[0]] != 0) && (mapArray.map[(worldLoc.y + spriteWidth) / 50][positionTiles[0]] != 0))
@@ -192,7 +201,8 @@ void Player::move(string movement){//the move method
 	}
 	else if (movement == "left")
 	{
-		//cout << worldLoc.x;
+		//
+		;
 		//cout << "\n";
 		//cout << worldLoc.y;
 		positionTiles[0] = worldLoc.x / 50;
@@ -201,6 +211,12 @@ void Player::move(string movement){//the move method
 		{
 			worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
 		}
+		positionTiles[0] = worldLoc.x / 50;
+		positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
+		if (mapArray.map[positionTiles[1]][positionTiles[0]] != 0)
+		{
+			worldLoc.x = worldLoc.x + 2; //Move the character normally when collision does not occur
+		}
 		//cout << "\n";
 	}
 	else if (movement == "jump")
@@ -208,8 +224,8 @@ void Player::move(string movement){//the move method
 		//if (collision){
 		collision = false;
 		//gravityVelocity = -5;
-		positionTiles[0] = worldLoc.x / 50;
-		positionTiles[1] = worldLoc.y / 50;
+		//positionTiles[0] = worldLoc.x / 50;
+		//positionTiles[1] = worldLoc.y / 50;
 		//cout << positionTiles[0] << "\n";
 		//cout << positionTiles[1] << "\n";
 		//if (map[positionTiles[1]][positionTiles[0]] == 0)
@@ -276,7 +292,7 @@ void Player::moveLeft(MapStructure mapArray)
 	positionTiles[1] = (worldLoc.y + 50) / 50; // Changed to 50, because the character is 2 tiles wide
 
 	//cout << worldLoc.y << " " << mapArray.map[positionTiles[1]][positionTiles[0]] << endl;
-	cout << gravityVelocity << endl;
+	//cout << gravityVelocity << endl;
 	if (mapArray.map[positionTiles[1]][positionTiles[0]] == 0)
 	{
 		worldLoc.x = worldLoc.x - 2; //Move the character normally when collision does not occur
