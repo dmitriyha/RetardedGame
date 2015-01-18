@@ -69,19 +69,23 @@ void Game::run(){
 			vector<vector<int>> mapArray = map.getMap();//the part that i just deleted comes from here
 
 			SDL_Rect playerSize = p.getPlayerLocation();
-
-			if ((mapArray[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) || (mapArray[(playerSize.y + 50) / 50][(playerSize.x) / 50] != 0))
+		
+			if ((mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + playerSize.w) / 50] != 0) // lower right border of the player
+				|| (mapArray.map[(playerSize.y + playerSize.h) / 50][(playerSize.x + 10) / 50] != 0)) // lower left border of the player
 			{
-				//cout << " OUCH!!! FLOOR";
+				
+				//cout << " OUCH!!! FLOOR" << endl;
 				p.move("bottom");
 				//Lock movement here
 			}
-			else if ((mapArray[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)){
+
+			else if ((mapArray.map[p.getPlayerLocation().y / 50][p.getPlayerLocation().x / 50] != 0) || (mapArray.map[(p.getPlayerLocation().y) / 50][(p.getPlayerLocation().x + 50) / 50] != 0)) //&&(p.moving==false))
+			{
 				p.move("top");
 				//cout << " OUCH!!! ROOF";
 			}
 
-
+			
 
 			if (p.isMoving()){//move player if keys are pressed
 				p.move(p.movement);
@@ -92,7 +96,7 @@ void Game::run(){
 
 			//e->gravity();//gravity of the enemy
 
-
+			
 			render();
 
 			p.collisionHandler(collision);
@@ -100,7 +104,7 @@ void Game::run(){
 			//cout <<p.getPlayerLocation().y << "\n" ;
 
 
-			//cout << p.getPlayerLocation().x << p.getPlayerLocation().y << endl;
+			//cout << p.getPlayerLocation().x << " " << p.getPlayerLocation().y << endl;
 
 			string fpsText = "The average FPS is: " + to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(), fpsText.c_str());
