@@ -87,7 +87,7 @@ void Player::render(){
 		}
 	}
 	Character::render();
-	hat.render(spriteSheetLoc,relativeLoc);
+	hat->render(spriteSheetLoc,relativeLoc);
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -383,11 +383,12 @@ void Player::collisionHandler(bool collision){
 	}
 }
 
-void Player::setHat(HeadWear _hat){
+void Player::setHat(Item* _hat){
 	hat = _hat;
 }
 
 Player::~Player()
 {
+	delete hat;
 	//dtor
 }

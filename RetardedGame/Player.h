@@ -24,7 +24,7 @@ class Player : public Character
 		string movement;
 		void move(string movement);
 		void collisionHandler(bool collision);
-		void setHat(HeadWear hat);
+		void setHat(Item* hat);
 		void setRelativeCoord(CoordinateStruct coord){ location = coord; }
 		~Player();
 	protected:
@@ -35,7 +35,7 @@ class Player : public Character
 		int continues;//amount of continues (usually like... 3 or 2?)
 		int cookies;//amount of collected cookies
 		Weapon weapon;//weapon being used at the moment
-		HeadWear hat;
+		Item* hat;
 		string position;//what's the position, for example: looking up, idle, duck etc...
 
 		const int spriteWidth = 40;//the width of the sprite

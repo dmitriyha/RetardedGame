@@ -30,8 +30,8 @@ Game::Game(){
 	hatTex->setRenderer(win.getRenderer());
 	hatTex->makeTexture("Images/afro.png");
 
-	HeadWear hat;
-	hat.setTexturePointer(hatTex);
+	hat=new HeadWear();
+	hat->setTexturePointer(hatTex);
 
 	p.setHat(hat);
 
@@ -148,6 +148,7 @@ void Game::setTextures(){
 
 Game::~Game(){
 	delete box;
+	delete hat;
 	//delete mapData;
 	for (int i = 0; enemies.size() > i; i++){
 		delete enemies.at(i);

@@ -38,6 +38,8 @@ class Game{
 	Texture* player;
 	Texture* mapTexture;
 
+	HeadWear* hat;
+
 	bool collision;
 public:
 	Game();
