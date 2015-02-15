@@ -17,10 +17,6 @@ using namespace std;
 class Game{
 	const string playerPicture = "Images\\tail_sprite2x.png";
 	const string characterPictures = "Images\\lol.png";
-	const string mapString1 = "Images\\map1.png";
-	const string mapString2 = "Images\\map2.png";
-	const string mapString3 = "Images\\map3.png";
-	const string mapString4 = "Images\\map4.png";
 	vector<Texture*> mapTextures;
 
 	const vector<vector<int>>* mapData;
@@ -31,10 +27,6 @@ class Game{
 	Player p;//create a player object
 	vector<Enemy*> enemies;
 	Texture* box;
-	Texture* map1;
-	Texture* map2;
-	Texture* map3;
-	Texture* map4;
 	Texture* player;
 	Texture* mapTexture;
 
