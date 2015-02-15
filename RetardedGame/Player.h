@@ -21,6 +21,7 @@ class Player : public Character
 		bool isMoving();
 		bool moving;
 		string movement;
+		string direction;
 		void move(string movement);
 		void collisionHandler(bool collision);
 		void setRelativeCoord(CoordinateStruct coord){ location = coord; }

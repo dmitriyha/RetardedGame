@@ -103,6 +103,7 @@ void Player::eventHandler(SDL_Event event){
 				{
 					moving = true;
 					movement = "right";
+					direction = "right";
 				}
 				break;
 
@@ -111,6 +112,7 @@ void Player::eventHandler(SDL_Event event){
 				{
 					moving = true;
 					movement = "left";
+					direction = "left";
 				}
 				break;
 
@@ -118,6 +120,7 @@ void Player::eventHandler(SDL_Event event){
 				moving = false;
 				ducking = true;
 				//animationTimer = 0;
+				cout << "lol";
 				break;
 
 			case SDLK_a:
@@ -125,7 +128,14 @@ void Player::eventHandler(SDL_Event event){
 				{
 					moving = true;
 					movement = "jump";
-					
+				}
+
+				if (direction == "left") {
+					direction = "left";
+				}
+
+				else if (direction == "right") {
+					direction = "right";
 				}
 				break;
 
@@ -136,21 +146,51 @@ void Player::eventHandler(SDL_Event event){
 			case SDLK_RIGHT:
 				moving=false;
 				movement = "";
+				if (direction == "left")
+				{
+					direction = "left";
+					movement = "left";
+				}
+
+				else {
+					direction = "";
+				}
 				break;
 
 			case SDLK_LEFT:
 				moving = false;
 				movement = "";
+				if (direction == "right")
+				{
+					direction = "right";
+					movement = "right;";
+				}
+
+				else {
+					direction = "";
+				}
 				break;
 
 			case SDLK_DOWN:
 				ducking = false;
 				wasDucking = true;
+				cout << "only once?";
 				break;
 
 			case SDLK_a:
 				//moving = false;
 				movement = "";
+				
+				if (direction == "right")
+				{
+					direction = "right";
+				}
+
+				else if (direction == "left")
+				{
+					direction = "left";
+				}
+
 				break;
 		}
 	}
@@ -234,6 +274,7 @@ void Player::move(string movement){//the move method
 			gravityVelocity = -5;
 			readyToJump = false;
 		}
+
 		//}
 		//else
 		//{
@@ -241,6 +282,19 @@ void Player::move(string movement){//the move method
 		//}
 		//worldLoc.y = (480 - spriteSheetLoc.h) - 1;
 		//}
+		if (direction == "right")
+		{
+			worldLoc.x = worldLoc.x + 2;
+			cout << "check";
+		}
+
+		else if (direction == "left")
+		{
+			worldLoc.x = worldLoc.x - 2;
+			cout << "check";
+		}
+
+
 	}
 	else if (movement == "bottom")
 	{
