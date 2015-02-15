@@ -6,6 +6,8 @@ Player::Player(){
 	spriteSheetLoc={0,0,spriteWidth,spriteHeight};//where the player sprite is on the sprite sheet
 	worldLoc = { 50, 50, spriteWidth, spriteHeight };//where the player will go on the canvas
 
+	
+
 	duckStart = { 720, 0, 68, 58 };
 	duck = { 788, 0, 68, 58 };
 	duckBlink = { 856, 0, 68, 58 };
@@ -24,6 +26,8 @@ Player::Player(){
 		rectList.push_back(walk);
 	}
 }
+
+
 
 void Player::render(){
 	animationTimer += currentTickCount - previousTickCount;
@@ -83,6 +87,7 @@ void Player::render(){
 		}
 	}
 	Character::render();
+	hat.render(spriteSheetLoc,relativeLoc);
 }
 
 SDL_Rect Player::getPlayerLocation(){
@@ -376,6 +381,10 @@ void Player::collisionHandler(bool collision){
 		invulnTime = 0;
 		//spriteSheetLoc = { 0, 0, spriteWidth, spriteHeight };
 	}
+}
+
+void Player::setHat(HeadWear _hat){
+	hat = _hat;
 }
 
 Player::~Player()

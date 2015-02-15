@@ -47,12 +47,13 @@ Window::Window(){
 	
 }
 
-void Window::setCanvasSize(vector<Texture*> texture){
+void Window::setCanvasSize(){
 	//if window was created, initialise the canvas
 	if (success){
-		canvasSize=texture.at(0)->getSize();
-		canvasSize.w *= 3;
-		canvasSize.h *= 3;
+		canvasSize.x = 0;
+		canvasSize.y = 0;
+		canvasSize.w = 3000;
+		canvasSize.h = 3000;
 		canvas.setRenderer(renderer);
 		canvas.makeBlankTexture(canvasSize.w, canvasSize.h);
 	}

@@ -140,6 +140,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Goggles.cpp" />
     <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="HeadWear.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Goggles.h" />
     <ClInclude Include="Gun.h" />
+    <ClInclude Include="HeadWear.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Map.h" />
@@ -176,12 +178,11 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Images\afro.png" />
     <Image Include="Images\basic2.png" />
     <Image Include="Images\BasicMap.png" />
     <Image Include="Images\img.png" />
     <Image Include="Images\lol.png" />
-    <Image Include="Images\map1.png" />
-    <Image Include="Images\map2.png" />
     <Image Include="Images\tail_sprite2x.png" />
   </ItemGroup>
   <ItemGroup>

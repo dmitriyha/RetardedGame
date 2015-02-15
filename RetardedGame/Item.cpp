@@ -8,8 +8,8 @@ bool Item::isEquipped(){
 	return equipped;
 }
 
-void Item::renderItem() {
-
+void Item::render(SDL_Rect spriteSheetLoc, SDL_Rect relativeLoc) {
+	SDL_RenderCopy(texture->getRenderer(), texture->getTexture(), &spriteSheetLoc, &relativeLoc);
 }
 
 Item::~Item()

@@ -9,7 +9,7 @@ class Item
 	public:
 		void setTexturePointer(Texture* _texture);//set the pointer to the texture
 		bool isEquipped(); //checks to see if the iyem is equipped
-		virtual void renderItem(); //renders item
+		virtual void render(SDL_Rect spriteSheetLoc, SDL_Rect relativeLoc); //renders item
 		virtual ~Item();
 	protected:
 		Texture* texture; // the pointer to the spritesheet of the item

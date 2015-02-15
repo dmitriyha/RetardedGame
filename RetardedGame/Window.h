@@ -22,7 +22,7 @@ class Window
 	public:
 		bool resized;
 		Window();
-		void setCanvasSize(vector<Texture*> texture);
+		void setCanvasSize();
 		void clearFrame();
 		void renderFrame(SDL_Rect playerLoc);
 		void windowEventHandler(SDL_Event event);
