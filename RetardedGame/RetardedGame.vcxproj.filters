@@ -87,6 +87,9 @@
     <ClCompile Include="MapParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HeadWear.cpp">
+      <Filter>Source Files\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gadget.h">
@@ -155,6 +158,9 @@
     <ClInclude Include="TileSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HeadWear.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Images\img.png">
@@ -166,16 +172,13 @@
     <Image Include="Images\BasicMap.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Images\map1.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Images\map2.png">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Images\tail_sprite2x.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Images\basic2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Images\afro.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
