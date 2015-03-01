@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="museum tileset4" tilewidth="50" tileheight="50">
+  <image source="museum tileset4.png" trans="ffffff" width="402" height="299"/>
+ </tileset>
+ <layer name="Tile Layer 4" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzjZmBg4CYRswMxBxn6WNH4vFCaH4gFiNDPS4adA4HJCR82NL4oEIuRGD7ImG8QhAO1MRcSpoYZ2DCp6gfaPHIBzLxRMAooAQBELwpP
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+  </data>
+ </layer>
+ <layer name="Tile Layer 2 - CHARACTER" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFuIAMEMtC2dJUMIsJCcviV44XSAKxIBQLIbGlKDAL2RxkjG4mEx4sAjUH2SwhLGIgoAjEyjjsxOYeITR3CKKZh24HLj8RC0hVj88MZLeQAkBhpMQACSeYfvTwFKIAC2KhR8EoIAUAAH4gBxY=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwnIA7EcFCsMrFNGwSgYBUMcAAAV5gB8
+  </data>
+ </layer>
+</map>

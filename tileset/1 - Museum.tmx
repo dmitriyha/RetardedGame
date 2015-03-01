@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="10" tilewidth="50" tileheight="50">
+ <tileset firstgid="1" name="museum tileset4" tilewidth="50" tileheight="50">
+  <image source="museum tileset4.png" trans="ffffff" width="400" height="300"/>
+ </tileset>
+ <layer name="Tile Layer 4" width="200" height="10">
+  <data encoding="base64" compression="zlib">
+   eJzt06ENADEMwMDgdv99fwLDVHrpwHET35m5S86irWZ4xR/Q/AHNH9D8Ac0f0PwBzR/Q/AHNH/zdB+gAVQs=
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="200" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztzbsKgDAQBMA0Phqjjf7/p3qFlSQYBUFkBpbAcmRTAgDgDUNkLPR9oVsj24ON0l+1XfiSObKcui6Sj/fK1HCTb+y2bAIAAADwfzst2ADR
+  </data>
+ </layer>
+ <layer name="Tile Layer 2 - CHARACTER" width="200" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztmEsKg0AQRBtv4OcIMWSV5P6nSwazGJrpSRZWG+E9KNBSy02XYI9mNnY0ffGj60cJYE/KTD0EqmdWmU0/QMkqyr3bNq9PQfbF6AfkoOpH4SrKpR+QhbIfN1Eu/YAslP1QQT8gizJT81vDR4ttO6nai3zvRc96/ZJVe/4d/J9DFn5n29rXRv4/7n0B9iSa/ynw/f29++gHnJ3Wd7/Xl95565h+wJl5AQL6HCE=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="200" height="10">
+  <data encoding="base64" compression="zlib">
+   eJztzMEJACAMA8BOot1/Sh3AouBH5A7yCSERAAAAwCv6TC66VvR5sLv52v0BAADATwZuwQJQ
+  </data>
+ </layer>
+</map>
