@@ -60,7 +60,7 @@ void Window::setCanvasSize(){
 }
 
 void Window::clearFrame(){//clear a texture
-	SDL_SetRenderDrawColor( renderer, 0x0, 0x0, 0x0, 0x0 );
+	SDL_SetRenderDrawColor( renderer, 0x255, 0x255, 0x255, 0x0 );
 	SDL_RenderClear( renderer );
 }
 

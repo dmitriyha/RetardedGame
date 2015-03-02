@@ -107,11 +107,6 @@ void Game::run(){
 
 			p.collisionHandler(collision);
 
-			//cout <<p.getPlayerLocation().y << "\n" ;
-
-
-			//cout << p.getPlayerLocation().x << " " << p.getPlayerLocation().y << endl;
-
 			string fpsText = "The average FPS is: " + to_string(fps.getAvgFps());
 			SDL_SetWindowTitle(win.getWindow(), fpsText.c_str());
 
