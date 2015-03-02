@@ -186,6 +186,7 @@
     <Image Include="Images\tail_sprite2x.png" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Maps\1-Museum.txt" />
     <Text Include="Maps\BasicMap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -389,6 +389,6 @@ void Player::setHat(Item* _hat){
 
 Player::~Player()
 {
-	delete hat;
+	//delete hat;
 	//dtor
 }

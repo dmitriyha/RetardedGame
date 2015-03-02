@@ -186,5 +186,8 @@
     <Text Include="Maps\BasicMap.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Maps\1-Museum.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

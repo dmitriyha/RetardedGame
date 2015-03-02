@@ -5,7 +5,7 @@ Map::Map(){}
 Map::Map(SDL_Renderer* render)
 {
 	MapParser parser;
-	parser.readFile("Maps\\map.txt");
+	parser.readFile("Maps\\1-Museum.txt");
 	header = parser.getMapHeader();
 	tileSet = parser.getTilesetData();
 	layers = parser.getLayers();
@@ -49,9 +49,11 @@ Map::Map(SDL_Renderer* render)
 
 	int x = 0, y = 0;
 
-	for (int k = 0; k < header.height; k++){
+	for (int k = 0; k < header.height; k++)
+	{
 		bool entry = true;
-		for (int l = 0; l < header.width; l++){
+		for (int l = 0; l < header.width; l++)
+		{
 			SDL_Rect worldLoc = { ((l % tilesPerTexX) * header.tileWidth), ((k % tilesPerTexY) * header.tileHeight), header.tileWidth, header.tileHeight };
 			SDL_Rect tileLoc = { 0, 0, header.tileWidth, header.tileHeight };
 
@@ -63,23 +65,27 @@ Map::Map(SDL_Renderer* render)
 				
 
 			}
-			else{
+			else
+			{
 
 				
 
-				int tile = map[k][l] - 1;
-				int row = map[k][l] / 8;
-
-				if (tile > row){
-					tile = tile - (row * 8);
-				}
+				int tile = (map[k][l] - 1) % 8;
+				int row = (map[k][l] - 1)/ 8;
 
 				
 
-				//cout << row << endl;
+				
+
+				//cout << tile << endl;
 
 				tileLoc.x = tile * header.tileWidth;
 				tileLoc.y = row * header.tileHeight;
+
+				if (map[k][l] == 40)
+				{
+					cout << tile << " " << row << " " << endl;
+				}
 
 				if (k == 1 && l == 3){
 
@@ -106,12 +112,7 @@ Map::Map(SDL_Renderer* render)
 				entry = false;
 			}
 
-			//cout << k<<" "<<l<<" "<<x<<" "<<y<<endl;
-			//x++;
 		}
-		//cout << endl;
-
-		//x = tilesPerTexX * (j);
 	}
 		
 
@@ -170,9 +171,11 @@ CoordinateStruct Map::render(SDL_Rect playerLoc){
 	}
 
 	for (int i = 0; i < 3; i++){
+		
 		for (int j = 0; j < 3; j++){
 			SDL_Rect size = { ((j)* 1000), ((i)* 1000), 1000, 1000 };
-			//cout << i << " " << j << endl;
+			//cout << i << " " << j << " " << texture.at(firstTextureY + i).size() << endl;
+			
 			SDL_RenderCopy(texture.at(firstTextureY + i).at(firstTextureX + j)->getRenderer(), texture.at(firstTextureY + i).at(firstTextureX + j)->getTexture(), NULL, &size); //render the sprite to the canvas
 		}
 	}
